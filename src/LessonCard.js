@@ -1,4 +1,5 @@
 import React from 'react'
+import CommentsList from './CommentsList'
 
 const LessonCard = props => {
   // console.log(props.comments)
@@ -8,9 +9,7 @@ const LessonCard = props => {
       <p>{props.lesson.description}</p>
       <p>{props.lesson.grade} Grade, {props.lesson.subject}</p>
       <p onClick={() => props.handleIncreaseTimesUsed(props.lesson.id)} >Times used: {props.lesson.times_used}</p>
-      <ul>
-        {props.comments.map(comment => <li key={comment.id} >{comment.content}</li>)}
-      </ul>
+      <CommentsList comments={props.comments} />
     </div>
   )
 }
