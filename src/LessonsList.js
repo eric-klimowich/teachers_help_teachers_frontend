@@ -1,10 +1,11 @@
 import React from 'react'
+import LessonCard from './LessonCard'
 
 const LessonsList = props => {
-  console.log(props)
+  // console.log(props)
   return (
     <div>
-      In LessonsList
+      <LessonCard />
     </div>
   )
 }
