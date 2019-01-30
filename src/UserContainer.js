@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import UserProfile from './UserProfile'
 
 class UserContainer extends Component {
 
@@ -29,11 +30,14 @@ class UserContainer extends Component {
   render() {
     console.log(this.state.currentUser)
     return (
-      <form>
-        <select value={this.state.value} onChange={this.handleChange} >
-          {this.state.users.map(user => <option key={user.id} value={user.id}>{user.first_name}</option>)}
-        </select>
-      </form>
+      <Fragment>
+        <form>
+          <select value={this.state.value} onChange={this.handleChange} >
+            {this.state.users.map(user => <option key={user.id} value={user.id}>{user.first_name}</option>)}
+          </select>
+        </form>
+        <UserProfile />
+      </Fragment>
     )
   }
 }
