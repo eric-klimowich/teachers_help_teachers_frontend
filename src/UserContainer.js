@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import UserProfile from './UserProfile'
+import LessonsContainer from './LessonsContainer'
 
 class UserContainer extends Component {
 
@@ -30,6 +31,7 @@ class UserContainer extends Component {
           </select>
         </form>
         <UserProfile currentUser={this.state.currentUser} />
+        <LessonsContainer />
       </Fragment>
     )
   }
