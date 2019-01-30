@@ -1,26 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LessonsList from './LessonsList'
 
-class LessonsContainer extends Component {
-
-  state = {
-    lessons: []
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/lessons')
-      .then(r => r.json())
-      .then(lessons => this.setState({ lessons }))
-  }
-
-  render() {
+const LessonsContainer = props => {
     // console.log(this.state.lessons)
-    return (
-      <div>
-        <LessonsList allLessons={this.state.lessons} />
-      </div>
-    )
-  }
+  return (
+    <div>
+      <LessonsList lessons={props.lessons} />
+    </div>
+  )
 }
 
 export default LessonsContainer
