@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LessonsList from './LessonsList'
 
 class LessonsContainer extends Component {
 
@@ -13,10 +14,10 @@ class LessonsContainer extends Component {
   }
 
   render() {
-    console.log(this.state.lessons)
+    // console.log(this.state.lessons)
     return (
       <div>
-        In LessonsContainer
+        <LessonsList allLessons={this.state.lessons} />
       </div>
     )
   }
