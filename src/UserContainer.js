@@ -5,7 +5,6 @@ class UserContainer extends Component {
 
   state = {
     users: [],
-    value: "1",
     currentUser: null
   }
 
@@ -15,20 +14,14 @@ class UserContainer extends Component {
       .then(users => this.setState({ users }))
   }
 
-  selectUser = () => {
+  handleChange = event => {
     this.setState({
-      currentUser: [...this.state.users].find(user => user.id === parseInt(this.state.value))
+      currentUser: [...this.state.users].find(user => user.id === parseInt(event.target.value))
     })
   }
 
-  handleChange = event => {
-    this.setState({
-      value: event.target.value
-    }, () => this.selectUser())
-  }
-
   render() {
-    console.log(this.state.currentUser)
+    // console.log(this.state.currentUser)
     return (
       <Fragment>
         <form>
@@ -36,7 +29,7 @@ class UserContainer extends Component {
             {this.state.users.map(user => <option key={user.id} value={user.id}>{user.first_name}</option>)}
           </select>
         </form>
-        <UserProfile />
+        <UserProfile currentUser={this.state.currentUser} />
       </Fragment>
     )
   }
