@@ -5,7 +5,7 @@ const LessonsList = props => {
   // console.log(props)
   return (
     <div>
-      <LessonCard />
+      {props.allLessons.map(lesson => <LessonCard lesson={lesson} />)}
     </div>
   )
 }
