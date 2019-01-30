@@ -12,7 +12,11 @@ const UserContainer = props => {
         </select>
       </form>
       <UserProfile currentUser={props.currentUser} />
-      <LessonsContainer lessons={props.lessons}/>
+      <LessonsContainer
+        lessons={props.lessons}
+        comments={props.comments}
+        handleIncreaseTimesUsed={props.handleIncreaseTimesUsed}
+      />
     </div>
   )
 }
