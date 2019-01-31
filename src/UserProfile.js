@@ -1,7 +1,6 @@
 import React from 'react'
 
 const UserProfile = props => {
-  // console.log(props.currentUser)
   if (props.currentUser) {
     return (
       <div>

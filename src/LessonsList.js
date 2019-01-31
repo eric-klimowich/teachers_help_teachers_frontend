@@ -2,7 +2,7 @@ import React from 'react'
 import LessonCard from './LessonCard'
 
 const LessonsList = props => {
-  // console.log(props.comments)
+  console.log(props.lessons)
   return (
     <div>
       {props.lessons.map(lesson => {
@@ -10,8 +10,7 @@ const LessonsList = props => {
           <LessonCard
             key={lesson.id}
             lesson={lesson}
-            comments={props.comments.filter(comment => comment.lesson_id === lesson.id)}
-            handleIncreaseTimesUsed={props.handleIncreaseTimesUsed}
+            comments={lesson.comments}
           />
         )
       })}

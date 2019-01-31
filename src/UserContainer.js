@@ -1,24 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
 import UserProfile from './UserProfile'
 import LessonsContainer from './LessonsContainer'
+import { connect } from 'react-redux'
+import { setUsers } from './actions'
 
-const UserContainer = props => {
-    // console.log(this.state.currentUser)
-  return (
-    <div>
-      <form>
-        <select onChange={props.handleSelectedUser} >
-          {props.users.map(user => <option key={user.id} value={user.id}>{user.first_name}</option>)}
-        </select>
-      </form>
-      <UserProfile currentUser={props.currentUser} />
-      <LessonsContainer
-        lessons={props.lessons}
-        comments={props.comments}
-        handleIncreaseTimesUsed={props.handleIncreaseTimesUsed}
-      />
-    </div>
-  )
+class UserContainer extends Component {
+
+
+  componentDidMount() {
+    fetch('http://localhost:3000/api/v1/users')
+      .then(r => r.json())
+      .then(users => this.props.setUsers(users))
+  }
+
+  render() {
+    // console.log(this.props)
+    return (
+      <div>
+        <UserProfile />
+        <LessonsContainer />
+      </div>
+    )
+  }
 }
 
-export default UserContainer
+  function mapStateToProps(state) {
+    return {
+      users: state.users
+    }
+  }
+
+  function mapDispatchToProps(dispatch) {
+    return {
+      setUsers: (users) => dispatch(setUsers(users))
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)
