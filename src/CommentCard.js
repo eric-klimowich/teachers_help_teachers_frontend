@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CommentCard = props => {
-  console.log(props.comment)
+  // console.log(props.comment)
   return (
     <div>
       In CommentCard

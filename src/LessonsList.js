@@ -2,7 +2,7 @@ import React from 'react'
 import LessonCard from './LessonCard'
 
 const LessonsList = props => {
-  console.log(props.lessons)
+  // console.log(props.lessons)
   return (
     <div>
       {props.lessons.map(lesson => {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const UserProfile = props => {
   if (props.currentUser) {
@@ -13,4 +14,10 @@ const UserProfile = props => {
   }
 }
 
-export default UserProfile
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(UserProfile)
