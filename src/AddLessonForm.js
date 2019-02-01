@@ -16,15 +16,34 @@ class AddLessonForm extends Component {
     subject: ''
   }
 
+  handleChange = event => {
+    // console.log(event.target.value)
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render() {
+    console.log(this.state)
     return (
       <div>
         <form>
-          <input placeholder="lesson title...." />
+          <input
+            type="text"
+            name="title"
+            placeholder="lesson title...."
+            onChange={this.handleChange}
+          />
           <br />
-          <textarea placeholder="lesson description...." />
+          <textarea
+            name="description"
+            placeholder="lesson description...."
+          />
           <br />
-          <input placeholder="lesson file...." />
+          <input
+            name="file"
+            placeholder="lesson file...."
+          />
           <br />
           <select>
             {ratings.map(rating => <option key={rating} >{rating}</option>)}
@@ -37,6 +56,8 @@ class AddLessonForm extends Component {
           <select>
             {subjects.map(rating => <option key={rating} >{rating}</option>)}
           </select>
+          <br />
+          <input type="submit" ></input>
         </form>
       </div>
     )
