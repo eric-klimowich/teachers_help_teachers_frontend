@@ -12,6 +12,13 @@ export const setLessons = lessons => {
   }
 }
 
+export const addLesson = newLesson => {
+  return {
+    type: 'ADD_LESSON',
+    payload: newLesson
+  }
+}
+
 export const setCurrentUser = currentUser => {
   return {
     type: 'SET_CURRENT_USER',

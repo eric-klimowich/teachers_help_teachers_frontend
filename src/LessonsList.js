@@ -10,7 +10,7 @@ const LessonsList = props => {
           <LessonCard
             key={lesson.id}
             lesson={lesson}
-            comments={lesson.comments}
+            comments={lesson.comments ? lesson.comments : []}
           />
         )
       })}

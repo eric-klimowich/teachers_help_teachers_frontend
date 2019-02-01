@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { addLesson } from './actions'
 
 const grades = ["K", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"]
 const subjects = ["Math", "ELA", "Science", "Social Studies", "PE", "Art", "Music"]
@@ -16,17 +19,23 @@ class AddLessonForm extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
+  handleSubmit = event => {
+    event.preventDefault()
+    // console.log('submitted')
+    this.props.addLesson(this.state)
+  }
+
   render() {
-    console.log(this.state)
+    console.log(this.props)
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
 
           <input
             type="text"
@@ -95,4 +104,10 @@ class AddLessonForm extends Component {
   }
 }
 
-export default AddLessonForm
+const connectDispatchToProps = dispatch => {
+  return {
+    addLesson: (lesson) => dispatch(addLesson(lesson))
+  }
+}
+
+export default connect(null, connectDispatchToProps)(AddLessonForm)

@@ -11,6 +11,8 @@ export default function (state = defaultState, action) {
       return {...state, users: action.payload}
     case 'SET_LESSONS':
       return {...state, lessons: action.payload}
+    case 'ADD_LESSON':
+      return {...state, lessons: [...state.lessons, action.payload]}
     case 'SET_CURRENT_USER':
       return {...state, currentUser: action.payload}
     default:
