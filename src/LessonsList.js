@@ -1,5 +1,5 @@
 import React from 'react'
-import LessonCard from './LessonCard'
+import AbridgedLessonCard from './AbridgedLessonCard'
 
 const LessonsList = props => {
   // console.log(props.lessons)
@@ -7,7 +7,7 @@ const LessonsList = props => {
     <div>
       {props.lessons.map(lesson => {
         return (
-          <LessonCard
+          <AbridgedLessonCard
             key={lesson.id}
             lesson={lesson}
             comments={lesson.comments ? lesson.comments : []}
