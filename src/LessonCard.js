@@ -2,7 +2,7 @@ import React from 'react'
 import CommentsList from './CommentsList'
 
 const LessonCard = props => {
-  console.log(props)
+  // console.log(props)
   // console.log(props.comments)
   return (
     <div key={props.lesson.key} >
