@@ -28,11 +28,11 @@ class AddLessonForm extends Component {
   handleSubmit = event => {
     event.preventDefault()
     // console.log('submitted')
-    this.props.addLesson(this.state)
+    // this.props.addLesson(this.state)
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

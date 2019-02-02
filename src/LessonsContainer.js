@@ -12,17 +12,25 @@ class LessonsContainer extends Component {
       .then(lessons => this.props.setLessons(lessons))
   }
 
+  filterLessons = () => {
+    const filteredLessons = this.props.lessons.filter(lesson => this.props.subjectsToFilter.includes(lesson.grade.subject))
+    // console.log(filteredLessons)
+    return filteredLessons
+  }
+
   render() {
-    // console.log(this.props)
+    // console.log(this.props.lessons)
+    // console.log(this.props.subjectsToFilter)
     return (
-        <LessonsList lessons={this.props.lessons} />
+        <LessonsList lessons={this.props.subjectsToFilter.length > 0 ?  this.filterLessons() : this.props.lessons} />
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    lessons: state.lessons
+    lessons: state.lessons,
+    subjectsToFilter: state.subjectsToFilter
   }
 }
 
