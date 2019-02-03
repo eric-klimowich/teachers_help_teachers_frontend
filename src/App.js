@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import './App.css'
 import UserContainer from './UserContainer'
-import WelcomePage from './WelcomePage'
+import HomePage from './HomePage'
 
-const App = props => {
-  return (
-    <div>
-      <WelcomePage />
-      <UserContainer />
-    </div>
-  )
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {this.props.currentUser ? <UserContainer /> : <HomePage />}
+      </div>
+    )
+  }
 }
 
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser
+  }
+}
 
-export default App
+export default connect(mapStateToProps)(App)

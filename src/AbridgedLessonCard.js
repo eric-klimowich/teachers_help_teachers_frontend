@@ -23,6 +23,10 @@ const AbridgedLessonCard = props => {
           Comments: {props.comments.length}
         </span>
       </div>
+      <div onClick={() => props.handlePickedLesson(props.lesson)} className="ui bottom attached button">
+        <i className="add icon"></i>
+        Click to See Details
+      </div>
     </div>
   )
 }

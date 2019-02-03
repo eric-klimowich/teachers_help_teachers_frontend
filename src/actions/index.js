@@ -67,3 +67,16 @@ export const removeSubjectsToFilter = (subjectIds) => {
     payload: subjectIds
   }
 }
+
+export const setPickedLesson = currentLesson => {
+  return {
+    type: 'SET_CURRENT_LESSON',
+    payload: currentLesson
+  }
+}
+
+export const resetPickedLesson = () => {
+  return {
+    type: 'RESET_CURRENT_LESSON'
+  }
+}

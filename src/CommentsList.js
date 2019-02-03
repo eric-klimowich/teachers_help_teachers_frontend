@@ -2,7 +2,7 @@ import React from 'react'
 import CommentCard from './CommentCard'
 
 const CommentsList = props => {
-  // console.log(props.comments)
+  // console.log(props)
   return (
     <div>
         {props.comments.map(comment => <CommentCard key={comment.id} comment={comment} />)}

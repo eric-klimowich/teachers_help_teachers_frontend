@@ -6,6 +6,7 @@ const defaultState = {
   subjects: [],
   lessons: [],
   comments: [],
+  pickedLesson: null,
   currentUser: null
 }
 
@@ -32,6 +33,10 @@ export default function (state = defaultState, action) {
       return {...state, subjectsToFilter: action.payload}
     case 'REMOVE_SUBJECTS_TO_FILTER':
       return {...state, subjectsToFilter: action.payload}
+    case 'SET_CURRENT_LESSON':
+      return {...state, pickedLesson: action.payload}
+    case 'RESET_CURRENT_LESSON':
+      return {...state, pickedLesson: null}
     default:
       return state
   }

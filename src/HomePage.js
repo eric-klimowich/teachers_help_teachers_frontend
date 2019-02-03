@@ -2,7 +2,7 @@ import React from 'react'
 
 import Nav from './Nav'
 
-const WelcomePage = props => {
+const HomePage = props => {
   return (
     <div>
       <Nav />
@@ -10,4 +10,4 @@ const WelcomePage = props => {
   )
 }
 
-export default WelcomePage
+export default HomePage
