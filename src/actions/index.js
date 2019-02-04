@@ -80,3 +80,10 @@ export const resetPickedLesson = () => {
     type: 'RESET_CURRENT_LESSON'
   }
 }
+
+export const setLoginChoice = loginChoice => {
+  return {
+    type: 'SET_LOGIN_CHOICE',
+    payload: loginChoice
+  }
+}

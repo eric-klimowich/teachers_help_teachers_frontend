@@ -7,7 +7,8 @@ const defaultState = {
   lessons: [],
   comments: [],
   pickedLesson: null,
-  currentUser: null
+  currentUser: null,
+  loginChoice: ''
 }
 
 export default function (state = defaultState, action) {
@@ -37,6 +38,8 @@ export default function (state = defaultState, action) {
       return {...state, pickedLesson: action.payload}
     case 'RESET_CURRENT_LESSON':
       return {...state, pickedLesson: null}
+    case 'SET_LOGIN_CHOICE':
+      return {...state, loginChoice: action.payload}
     default:
       return state
   }
