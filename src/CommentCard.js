@@ -5,11 +5,11 @@ const CommentCard = props => {
   return (
     <div className="ui comments">
       <div className="comment">
-        <a className="avatar">
-        <img src="/images/avatar/small/stevie.jpg"/>
-        </a>
+        <p className="avatar">
+        <img src="/images/avatar/small/stevie.jpg" alt="comment-user" />
+        </p>
         <div className="content">
-          <a className="author">Stevie Feliciano</a>
+          <p className="author">Stevie Feliciano</p>
           <div className="metadata">
             <div className="date">2 days ago</div>
               <div className="rating">

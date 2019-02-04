@@ -17,22 +17,24 @@ class ReturningUser extends Component {
     })
   }
 
-  // handleSubmitReturningUser = (event, loginInput) => {
-  //     event.preventDefault()
-  //     // console.log(loginInput)
-  //     const userExists = this.state.users.find(user => user.username === loginInput.username)
-  //     if (userExists) {
-  //       if (loginInput.password === userExists.password) {
-  //         this.setState({
-  //           currentUser: userExists
-  //         })
-  //       }
-  //     }
-  //   }
+  handleSubmitReturningUser = (event, loginInput) => {
+      event.preventDefault()
+      // console.log(loginInput)
+      const userExists = this.props.users.find(user => user.username === loginInput.username)
+      if (userExists) {
+        if (loginInput.password === userExists.password) {
+          this.props.setCurrentUser(userExists)
+        }
+      }
+      this.setState({
+        username: '',
+        password: ''
+      })
+    }
 
   render() {
     return (
-      <form>
+      <form onSubmit={(event) => this.handleSubmitReturningUser(event, this.state)} >
         <div className="ui labeled input">
           <div className="ui green label">
             Username:
@@ -73,7 +75,6 @@ class ReturningUser extends Component {
 function mapStateToProps(state) {
   return {
     users: state.users,
-    currentUser: state.currentUser
   }
 }
 

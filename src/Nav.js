@@ -16,19 +16,17 @@ class Nav extends Component {
     return (
       <div>
         <div className="ui large menu">
-          <a className="active item">
+          <button className="active item">
             Home
-          </a>
-          <a className="item">
+          </button>
+          <button className="item">
             Messages
-          </a>
+          </button>
           <div className="right menu">
             <div className="ui dropdown item">
               Language <i className="dropdown icon"></i>
               <div className="menu">
-                <a className="item">English</a>
-                <a className="item">Russian</a>
-                <a className="item">Spanish</a>
+                
               </div>
             </div>
             <div className="item">

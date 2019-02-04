@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { addNewUser } from './actions'
+import { setCurrentUser } from './actions'
 
 class NewUser extends Component {
 
@@ -41,11 +42,18 @@ class NewUser extends Component {
       .then(addedUser => {
         // console.log(addedUser)
         this.props.addNewUser(addedUser)
+        this.props.setCurrentUser(addedUser)
+      })
+      this.setState({
+        username: '',
+        password: '',
+        firstName: '',
+        lastName: ''
       })
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <form onSubmit={(event) => this.handleSubmitNewUser(event, this.state)}>
         <div className="ui labeled input">
@@ -113,16 +121,11 @@ class NewUser extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    users: state.users
-  }
-}
-
 const mapDispatchToProps = dispatch => {
   return {
-    addNewUser: (newUser) => dispatch(addNewUser(newUser))
+    addNewUser: (newUser) => dispatch(addNewUser(newUser)),
+    setCurrentUser: (currentUser) => dispatch(setCurrentUser(currentUser))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewUser)
+export default connect(null, mapDispatchToProps)(NewUser)
