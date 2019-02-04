@@ -94,3 +94,9 @@ export const addNewUser = newUser => {
     payload: newUser
   }
 }
+
+export const toggleAddLessonForm = () => {
+  return {
+    type: 'TOGGLE_ADD_LESSON_FORM'
+  }
+}

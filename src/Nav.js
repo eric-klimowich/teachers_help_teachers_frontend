@@ -2,13 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Login from './Login'
+import SearchBar from './SearchBar'
 import { setLoginChoice } from './actions'
+import { toggleAddLessonForm } from './actions'
 
 class Nav extends Component {
 
   handleLoginChoice = event => {
     // console.log(event.target.value)
     this.props.setLoginChoice(event.target.value)
+  }
+
+  handleAddLessonFormToggle = () => {
+    // console.log('clicked')
+    this.props.toggleAddLessonForm()
   }
 
   renderNavBar = () => {
@@ -19,16 +26,13 @@ class Nav extends Component {
             <button className="active item">
               Teachers Help Teachers
             </button>
+            <button className="item" onClick={this.handleAddLessonFormToggle} >
+              Add a Lesson
+            </button>
             <button className="item">
-              Messages
+              <SearchBar />
             </button>
             <div className="right menu">
-              <div className="ui dropdown item">
-                Language <i className="dropdown icon"></i>
-                <div className="menu">
-
-                </div>
-              </div>
               <div className="item">
                 <button
                   className="ui primary button"
@@ -49,16 +53,7 @@ class Nav extends Component {
             <button className="active item">
               Teachers Help Teachers
             </button>
-            <button className="item">
-              Messages
-            </button>
             <div className="right menu">
-              <div className="ui dropdown item">
-                Language <i className="dropdown icon"></i>
-                <div className="menu">
-
-                </div>
-              </div>
               <div className="item">
                 <button
                   className="ui primary button"
@@ -102,7 +97,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setLoginChoice: (loginChoice) => dispatch(setLoginChoice(loginChoice))
+    setLoginChoice: (loginChoice) => dispatch(setLoginChoice(loginChoice)),
+    toggleAddLessonForm: () => dispatch(toggleAddLessonForm())
   }
 }
 

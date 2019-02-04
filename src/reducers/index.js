@@ -8,7 +8,8 @@ const defaultState = {
   comments: [],
   pickedLesson: null,
   currentUser: null,
-  loginChoice: ''
+  loginChoice: '',
+  showAddLessonForm: false
 }
 
 export default function (state = defaultState, action) {
@@ -42,6 +43,8 @@ export default function (state = defaultState, action) {
       return {...state, loginChoice: action.payload}
     case 'ADD_NEW_USER':
       return {...state, users: [...state.users, action.payload]}
+    case 'TOGGLE_ADD_LESSON_FORM':
+      return {...state, showAddLessonForm: !state.showAddLessonForm}
     default:
       return state
   }
