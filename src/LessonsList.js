@@ -18,7 +18,7 @@ class LessonsList extends Component {
       )
     } else {
       return (
-        <div>
+        <div className="ui grid" >
           {this.props.lessons.map(lesson => {
             return (
               <AbridgedLessonCard

@@ -17,7 +17,7 @@ class Nav extends Component {
         <div>
           <div className="ui large menu">
             <button className="active item">
-              Home
+              Teachers Help Teachers
             </button>
             <button className="item">
               Messages
@@ -47,7 +47,7 @@ class Nav extends Component {
         <div>
           <div className="ui large menu">
             <button className="active item">
-              Home
+              Teachers Help Teachers
             </button>
             <button className="item">
               Messages
