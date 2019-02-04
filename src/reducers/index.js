@@ -9,7 +9,9 @@ const defaultState = {
   pickedLesson: null,
   currentUser: null,
   loginChoice: '',
-  showAddLessonForm: false
+  showAddLessonForm: false,
+  searchBarInput: ''
+
 }
 
 export default function (state = defaultState, action) {
@@ -45,6 +47,8 @@ export default function (state = defaultState, action) {
       return {...state, users: [...state.users, action.payload]}
     case 'TOGGLE_ADD_LESSON_FORM':
       return {...state, showAddLessonForm: !state.showAddLessonForm}
+    case 'CHANGE_SEARCH_BAR_INPUT':
+      return {...state, searchBarInput: action.payload}
     default:
       return state
   }

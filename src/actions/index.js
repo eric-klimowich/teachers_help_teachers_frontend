@@ -100,3 +100,10 @@ export const toggleAddLessonForm = () => {
     type: 'TOGGLE_ADD_LESSON_FORM'
   }
 }
+
+export const changeSearchBarInput = (searchBarInput) => {
+  return {
+    type: 'CHANGE_SEARCH_BAR_INPUT',
+    payload: searchBarInput
+  }
+}

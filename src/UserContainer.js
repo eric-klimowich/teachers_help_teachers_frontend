@@ -33,7 +33,7 @@ class UserContainer extends Component {
   }
 
   render() {
-    console.log(this.props.showAddLessonForm)
+    // console.log(this.props.showAddLessonForm)
     return (
       this.renderUserPage()
     )

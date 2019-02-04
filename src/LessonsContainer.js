@@ -13,16 +13,18 @@ class LessonsContainer extends Component {
   }
 
   filterLessons = () => {
-    const filteredLessons = this.props.lessons.filter(lesson => this.props.subjectsToFilter.includes(lesson.grade.subject))
-    // console.log(filteredLessons)
+    // const filteredLessons = this.props.lessons.filter(lesson => this.props.subjectsToFilter.includes(lesson.grade.subject))
+    const filteredLessons = this.props.lessons.filter(lesson => this.props.gradesToFilter.includes(lesson.grade.level))
+    console.log(filteredLessons)
     return filteredLessons
   }
 
   render() {
-    // console.log(this.props.lessons)
+    console.log(this.props.lessons, this.props.gradesToFilter)
     // console.log(this.props.subjectsToFilter)
+    console.log(this.props.searchBarInput)
     return (
-        <LessonsList lessons={this.props.subjectsToFilter.length > 0 ?  this.filterLessons() : this.props.lessons} />
+        <LessonsList lessons={this.props.gradesToFilter.length > 0 ?  this.filterLessons() : this.props.lessons} />
     )
   }
 }
@@ -30,7 +32,9 @@ class LessonsContainer extends Component {
 const mapStateToProps = state => {
   return {
     lessons: state.lessons,
-    subjectsToFilter: state.subjectsToFilter
+    gradesToFilter: state.gradesToFilter,
+    subjectsToFilter: state.subjectsToFilter,
+    searchBarInput: state.searchBarInput
   }
 }
 
