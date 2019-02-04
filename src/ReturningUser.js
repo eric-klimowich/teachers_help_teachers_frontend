@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { setUsers } from './actions'
 import { setCurrentUser } from './actions'
 
 class ReturningUser extends Component {
@@ -11,18 +10,25 @@ class ReturningUser extends Component {
     password: ''
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/users')
-      .then(r => r.json())
-      .then(users => this.props.setUsers(users))
-  }
-
   handleChange = (event) => {
     // console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     })
   }
+
+  // handleSubmitReturningUser = (event, loginInput) => {
+  //     event.preventDefault()
+  //     // console.log(loginInput)
+  //     const userExists = this.state.users.find(user => user.username === loginInput.username)
+  //     if (userExists) {
+  //       if (loginInput.password === userExists.password) {
+  //         this.setState({
+  //           currentUser: userExists
+  //         })
+  //       }
+  //     }
+  //   }
 
   render() {
     return (
@@ -73,7 +79,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setUsers: (users) => dispatch(setUsers(users)),
     setCurrentUser: (currentUser) => dispatch(setCurrentUser(currentUser))
   }
 }

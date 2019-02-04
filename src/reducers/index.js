@@ -40,6 +40,8 @@ export default function (state = defaultState, action) {
       return {...state, pickedLesson: null}
     case 'SET_LOGIN_CHOICE':
       return {...state, loginChoice: action.payload}
+    case 'ADD_NEW_USER':
+      return {...state, users: [...state.users, action.payload]}
     default:
       return state
   }

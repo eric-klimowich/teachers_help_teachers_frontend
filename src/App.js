@@ -4,8 +4,17 @@ import { connect } from 'react-redux'
 import './App.css'
 import UserContainer from './UserContainer'
 import HomePage from './HomePage'
+import { setUsers } from './actions'
+
 
 class App extends Component {
+
+  componentDidMount() {
+    fetch('http://localhost:3000/api/v1/users')
+      .then(r => r.json())
+      .then(users => this.props.setUsers(users))
+  }
+
   render() {
     return (
       <div>
@@ -20,5 +29,10 @@ const mapStateToProps = state => {
     currentUser: state.currentUser
   }
 }
+const mapDispatchToProps = dispatch => {
+  return {
+    setUsers: (users) => dispatch(setUsers(users)),
+  }
+}
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
