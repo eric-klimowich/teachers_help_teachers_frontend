@@ -51,6 +51,10 @@ export default function (state = defaultState, action) {
       return {...state, searchBarInput: action.payload}
     case 'LOGOUT_USER':
       return {...state, currentUser: null}
+    case 'ADD_COMMENT':
+      const pickedLessonCopy = {...state.pickedLesson}
+      pickedLessonCopy.comments.push(action.payload)
+      return {...state, pickedLesson: pickedLessonCopy}
     default:
       return state
   }

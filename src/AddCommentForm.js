@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { addComment } from './actions'
 
 const ratingOptions = [1, 2, 3, 4, 5]
 
@@ -16,6 +19,7 @@ class AddCommentForm extends Component {
   }
 
   handleCommentSubmit = (event) => {
+    // console.log(this.state)
     event.preventDefault()
     fetch('http://localhost:3000/api/v1/comments', {
       method: 'POST',
@@ -31,7 +35,7 @@ class AddCommentForm extends Component {
       })
     })
       .then(r => r.json())
-      .then(newComment => console.log(newComment))
+      .then(newComment => this.props.addComment(newComment))
     this.setState({
       commentInput: '',
       commentRating: null
@@ -43,13 +47,15 @@ class AddCommentForm extends Component {
     // console.log(this.state)
     return (
       <form onSubmit={this.handleCommentSubmit} >
-        <textarea
+        <input
           name="commentInput"
+          type="text"
           value={this.state.commentInput}
           onChange={this.handleCommentInputChange}
         />
         <br />
         <select name="commentRating" onChange={this.handleCommentInputChange}>
+          <option>Choose</option>
           Rating: {ratingOptions.map(rating => <option key={rating} value={rating} >{rating}</option>)}
         </select>
         <br />
@@ -59,4 +65,10 @@ class AddCommentForm extends Component {
   }
 }
 
-export default AddCommentForm
+const mapDispatchToProps = dispatch => {
+  return {
+    addComment: (newComment) => dispatch(addComment(newComment))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(AddCommentForm)

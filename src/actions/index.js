@@ -113,3 +113,10 @@ export const logoutUser = () => {
     type: 'LOGOUT_USER'
   }
 }
+
+export const addComment = (newComment) => {
+  return {
+    type: 'ADD_COMMENT',
+    payload: newComment
+  }
+}

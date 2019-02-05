@@ -29,9 +29,9 @@ class LessonsContainer extends Component {
   }
 
   render() {
-    console.log(this.props.lessons, this.props.gradesToFilter)
-    // console.log(this.props.subjectsToFilter)
-    console.log(this.props.searchBarInput)
+    // console.log(this.props.lessons)
+    // console.log(this.props.comments)
+    // console.log(this.props.searchBarInput)
     return (
         <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterLessonsBySubjectAndGrade().filter(lesson => lesson.title.includes(this.props.searchBarInput)) : this.props.lessons.filter(lesson => lesson.title.includes(this.props.searchBarInput))} />
     )
