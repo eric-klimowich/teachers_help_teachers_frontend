@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Login from './Login'
+import Logout from './Logout'
 import SearchBar from './SearchBar'
 import { setLoginChoice } from './actions'
 import { toggleAddLessonForm } from './actions'
@@ -34,13 +35,7 @@ class Nav extends Component {
             </button>
             <div className="right menu">
               <div className="item">
-                <button
-                  className="ui primary button"
-                  value="signup"
-                  onClick={this.handleLoginChoice}
-                >
-                  Logout
-                </button>
+                <Logout />
               </div>
             </div>
           </div>

@@ -49,6 +49,8 @@ export default function (state = defaultState, action) {
       return {...state, showAddLessonForm: !state.showAddLessonForm}
     case 'CHANGE_SEARCH_BAR_INPUT':
       return {...state, searchBarInput: action.payload}
+    case 'LOGOUT_USER':
+      return {...state, currentUser: null}
     default:
       return state
   }
