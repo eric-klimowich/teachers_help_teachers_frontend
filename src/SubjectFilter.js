@@ -5,6 +5,8 @@ import { setSubjects } from './actions'
 import { addSubjectsToFilter } from './actions'
 import { removeSubjectsToFilter } from './actions'
 
+const subjects = ["ELA", "Math", "Science", "Social Studies", "Art", "Music", "PE"]
+
 class SubjectFilter extends Component {
 
   state = {
@@ -42,14 +44,14 @@ class SubjectFilter extends Component {
     return (
       <div>
         <form>
-          {this.props.subjects.map(subject => {
+          {subjects.map(subject => {
             return(
-              <label key={subject.id} >
-                {subject.subject}
+              <label key={subject} >
+                {subject}
                 <input
                   type="checkbox"
-                  name={subject.subject}
-                  value={subject.subject}
+                  name={subject}
+                  value={subject}
                   checked={this.state.checked}
                   onChange={this.handleCheckedSubjects}
                 >

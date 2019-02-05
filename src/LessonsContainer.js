@@ -15,25 +15,30 @@ class LessonsContainer extends Component {
   filterLessonsByGrade = () => {
     if (this.props.gradesToFilter.length > 0) {
       return this.props.lessons.filter(lesson => this.props.gradesToFilter.includes(lesson.grade.level))
-    } else {
-      return this.props.lessons
     }
+    return []
   }
 
-  filterLessonsBySubjectAndGrade = () => {
+  filterLessonsBySubject = () => {
     if (this.props.subjectsToFilter.length > 0) {
-      return this.filterLessonsByGrade().filter(lesson => this.props.gradesToFilter.includes(lesson.grade.subject))
-    } else {
-      return this.filterLessonsByGrade()
+      return this.props.lessons.filter(lesson => this.props.subjectsToFilter.includes(lesson.grade.subject))
     }
+    return []
+  }
+
+  filterAllLessons = () => {
+    const gradeArray = this.filterLessonsByGrade()
+    const subjectArray = this.filterLessonsBySubject()
+    
   }
 
   render() {
-    // console.log(this.props.lessons)
+    console.log(this.props.lessons)
     // console.log(this.props.comments)
     // console.log(this.props.searchBarInput)
+    console.log(this.props.subjectsToFilter)
     return (
-        <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterLessonsBySubjectAndGrade().filter(lesson => lesson.title.includes(this.props.searchBarInput)) : this.props.lessons.filter(lesson => lesson.title.includes(this.props.searchBarInput))} />
+        <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterAllLessons().filter(lesson => lesson.title.includes(this.props.searchBarInput)) : this.props.lessons.filter(lesson => lesson.title.includes(this.props.searchBarInput))} />
     )
   }
 }

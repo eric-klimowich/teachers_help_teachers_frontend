@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { addLesson } from './actions'
 
 const grades = ["K", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"]
-const subjects = ["Math", "ELA", "Science", "Social Studies", "PE", "Art", "Music"]
+const subjects = ["ELA", "Math", "Science", "Social Studies", "Art", "Music", "PE"]
 
 class AddLessonForm extends Component {
 
@@ -32,7 +32,7 @@ class AddLessonForm extends Component {
   }
 
   render() {
-    // console.log(this.props)
+    console.log(this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -72,9 +72,9 @@ class AddLessonForm extends Component {
             onChange={this.handleChange}
           >
             <option>Grade</option>
-            {grades.map(grade => {
+            {this.props.grades.map(grade => {
               return (
-                <option key={grade} value={grade} >{grade}</option>
+                <option key={grade.id} value={grade.id} >{grade.grade}</option>
               )})
             }
           </select>
@@ -104,10 +104,17 @@ class AddLessonForm extends Component {
   }
 }
 
-const connectDispatchToProps = dispatch => {
+const mapStateToProps = state => {
+  return {
+    grades: state.grades,
+    subjects: state.subjects
+  }
+}
+
+const mapDispatchToProps = dispatch => {
   return {
     addLesson: (lesson) => dispatch(addLesson(lesson))
   }
 }
 
-export default connect(null, connectDispatchToProps)(AddLessonForm)
+export default connect(mapStateToProps, mapDispatchToProps)(AddLessonForm)

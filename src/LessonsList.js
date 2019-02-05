@@ -22,7 +22,6 @@ class LessonsList extends Component {
           {this.props.lessons.map(lesson => {
             return (
               <AbridgedLessonCard
-                key={lesson.id}
                 lesson={lesson}
                 comments={lesson.comments ? lesson.comments : []}
                 handlePickedLesson={this.handlePickedLesson}
