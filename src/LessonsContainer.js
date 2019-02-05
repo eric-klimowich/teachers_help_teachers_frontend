@@ -16,20 +16,14 @@ class LessonsContainer extends Component {
     if (this.props.gradesToFilter.length > 0) {
       return this.props.lessons.filter(lesson => this.props.gradesToFilter.includes(lesson.grade.level))
     }
-    return []
+    return this.props.lessons
   }
 
   filterLessonsBySubject = () => {
     if (this.props.subjectsToFilter.length > 0) {
-      return this.props.lessons.filter(lesson => this.props.subjectsToFilter.includes(lesson.grade.subject))
+      return this.filterLessonsByGrade().filter(lesson => this.props.subjectsToFilter.includes(lesson.grade.subject))
     }
-    return []
-  }
-
-  filterAllLessons = () => {
-    const gradeArray = this.filterLessonsByGrade()
-    const subjectArray = this.filterLessonsBySubject()
-
+    return this.filterLessonsByGrade()
   }
 
   render() {
@@ -38,7 +32,7 @@ class LessonsContainer extends Component {
     // console.log(this.props.searchBarInput)
     // console.log(this.props.subjectsToFilter)
     return (
-        <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterAllLessons().filter(lesson => lesson.title.includes(this.props.searchBarInput)) : this.props.lessons.filter(lesson => lesson.title.includes(this.props.searchBarInput))} />
+        <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterLessonsBySubject().filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase())) : this.props.lessons.filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()))} />
     )
   }
 }

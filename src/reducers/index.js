@@ -55,6 +55,12 @@ export default function (state = defaultState, action) {
       const pickedLessonCopy = {...state.pickedLesson}
       pickedLessonCopy.comments.push(action.payload)
       return {...state, pickedLesson: pickedLessonCopy}
+    case 'RESET_GRADES_TO_FILTER':
+      return {...state, gradesToFilter: []}
+    case 'RESET_SUBJECTS_TO_FILTER':
+      return {...state, subjectsToFilter: []}
+    case 'RESET_SEARCH_BAR_INPUT':
+      return {...state, searchBarInput: ''}
     default:
       return state
   }

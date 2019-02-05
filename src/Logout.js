@@ -2,11 +2,19 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { logoutUser } from './actions'
+import { resetGradesToFilter } from './actions'
+import { resetSubjectsToFilter } from './actions'
+import { resetSearchBarInput } from './actions'
+import { resetPickedLesson } from './actions'
 
 class Logout extends Component {
 
   handleLogout = () => {
     this.props.logoutUser()
+    this.props.resetGradesToFilter()
+    this.props.resetSubjectsToFilter()
+    this.props.resetSearchBarInput()
+    this.props.resetPickedLesson()
   }
 
   render() {
@@ -23,7 +31,11 @@ class Logout extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logoutUser: () => dispatch(logoutUser())
+    logoutUser: () => dispatch(logoutUser()),
+    resetGradesToFilter: () => dispatch(resetGradesToFilter()),
+    resetSubjectsToFilter: () => dispatch(resetSubjectsToFilter()),
+    resetSearchBarInput: () => dispatch(resetSearchBarInput()),
+    resetPickedLesson: () => dispatch(resetPickedLesson())
   }
 }
 

@@ -120,3 +120,21 @@ export const addComment = (newComment) => {
     payload: newComment
   }
 }
+
+export const resetGradesToFilter = () => {
+  return {
+    type: 'RESET_GRADES_TO_FILTER'
+  }
+}
+
+export const resetSubjectsToFilter = () => {
+  return {
+    type: 'RESET_SUBJECTS_TO_FILTER'
+  }
+}
+
+export const resetSearchBarInput = () => {
+  return {
+    type: 'RESET_SEARCH_BAR_INPUT'
+  }
+}
