@@ -5,6 +5,8 @@ import { setGrades } from './actions'
 import { addGradesToFilter } from './actions'
 import { removeGradesToFilter } from './actions'
 
+const grades = ["K", "1st", "2nd", "3rd", "4th"]
+
 class GradeFilter extends Component {
 
   state = {
@@ -39,14 +41,14 @@ class GradeFilter extends Component {
     return (
       <div>
         <form>
-          {this.props.grades.map(grade => {
+          {grades.map(grade => {
             return(
-              <label key={grade.id} >
-                {grade.grade}
+              <label key={grade} >
+                {grade}
                 <input
                   type="checkbox"
-                  name={grade.grade}
-                  value={grade.grade}
+                  name={grade}
+                  value={grade}
                   checked={this.state.checked}
                   onChange={this.handleCheckedGrades}
                 >

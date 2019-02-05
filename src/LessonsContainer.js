@@ -29,14 +29,14 @@ class LessonsContainer extends Component {
   filterAllLessons = () => {
     const gradeArray = this.filterLessonsByGrade()
     const subjectArray = this.filterLessonsBySubject()
-    
+
   }
 
   render() {
-    console.log(this.props.lessons)
+    // console.log(this.props.lessons)
     // console.log(this.props.comments)
     // console.log(this.props.searchBarInput)
-    console.log(this.props.subjectsToFilter)
+    // console.log(this.props.subjectsToFilter)
     return (
         <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterAllLessons().filter(lesson => lesson.title.includes(this.props.searchBarInput)) : this.props.lessons.filter(lesson => lesson.title.includes(this.props.searchBarInput))} />
     )

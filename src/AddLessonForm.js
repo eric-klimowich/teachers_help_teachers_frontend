@@ -27,12 +27,60 @@ class AddLessonForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    // console.log('submitted')
+    // console.log(this.state.grade)
+    // console.log(this.props.currentUser.id)
     // this.props.addLesson(this.state)
+    fetch('http://localhost:3000/api/v1/grade_levels', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        grade: this.state.grade,
+        user_id: this.props.currentUser.id
+      })
+    })
+      .then(r => r.json())
+      .then(addedGrade => {
+        console.log(addedGrade)
+        fetch('http://localhost:3000/api/v1/grade_subjects', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
+          body: JSON.stringify({
+            subject: this.state.subject,
+            grade_level_id: addedGrade.id
+          })
+        })
+        .then(r => r.json())
+        .then(addedSubject => {
+          console.log(addedSubject)
+          fetch('http://localhost:3000/api/v1/lessons', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            },
+            body: JSON.stringify({
+              title: this.state.title,
+              description: this.state.description,
+              file: this.state.file,
+              times_used: this.state.timesUsed,
+              grade_subject_id: addedSubject.id
+            })
+          })
+          .then(r => r.json())
+          .then(addedLesson => this.props.addLesson(addedLesson))
+        })
+      })
+
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -72,9 +120,9 @@ class AddLessonForm extends Component {
             onChange={this.handleChange}
           >
             <option>Grade</option>
-            {this.props.grades.map(grade => {
+            {grades.map(grade => {
               return (
-                <option key={grade.id} value={grade.id} >{grade.grade}</option>
+                <option key={grade} value={grade} >{grade}</option>
               )})
             }
           </select>
@@ -106,6 +154,7 @@ class AddLessonForm extends Component {
 
 const mapStateToProps = state => {
   return {
+    currentUser: state.currentUser,
     grades: state.grades,
     subjects: state.subjects
   }
