@@ -42,7 +42,7 @@ class SubjectFilter extends Component {
     // console.log('From local state: ', this.state.subjectsChecked)
     // console.log('From global state: ', this.props.filteredStuff)
     return (
-      <div>
+      <div className="ui container" >
         <form>
           {subjects.map(subject => {
             return(

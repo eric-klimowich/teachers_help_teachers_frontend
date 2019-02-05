@@ -39,7 +39,7 @@ class GradeFilter extends Component {
   render() {
     // console.log('From local state: ', this.state.gradesChecked)
     return (
-      <div>
+      <div className="ui container" >
         <form>
           {grades.map(grade => {
             return(
