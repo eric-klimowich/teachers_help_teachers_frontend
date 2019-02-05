@@ -11,16 +11,22 @@ class UserContainer extends Component {
 
   renderUserPage = () => {
     if (this.props.showAddLessonForm) {
-      return (
+      return(
         <div>
           <Nav />
           <UserProfile />
           <AddLessonForm />
-          <FilterContainer />
+        </div>
+      )
+    } else if (this.props.pickedLesson) {
+      return (
+        <div>
+          <Nav />
+          <UserProfile />
           <LessonsContainer />
         </div>
       )
-    }  else {
+    } else {
       return (
         <div>
           <Nav />
@@ -42,7 +48,8 @@ class UserContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    showAddLessonForm: state.showAddLessonForm
+    showAddLessonForm: state.showAddLessonForm,
+    pickedLesson: state.pickedLesson
   }
 }
 

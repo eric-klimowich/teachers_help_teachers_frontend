@@ -9,9 +9,9 @@ const CommentCard = props => {
         <img src="/images/avatar/small/stevie.jpg" alt="comment-user" />
         </p>
         <div className="content">
-          <p className="author">Stevie Feliciano</p>
+          <p className="author">{props.comment.userinfo.first_name} {props.comment.userinfo.last_name}</p>
           <div className="metadata">
-            <div className="date">2 days ago</div>
+            <div className="date">I don't know when.</div>
               <div className="rating">
                 <i className="star icon"></i>
                   5 Faves

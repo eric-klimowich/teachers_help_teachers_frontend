@@ -14,9 +14,11 @@ class FullLessonCard extends Component {
       <div key={this.props.lesson.key} >
         <h4>{this.props.lesson.title}</h4>
         <p>{this.props.lesson.description}</p>
-        <p>{this.props.lesson.grade.level} Grade, {this.props.lesson.grade.subject}</p>
+        <p>Grade: {this.props.lesson.grade.level}, Subject: {this.props.lesson.grade.subject}</p>
         <p>Times used: {this.props.lesson.times_used}</p>
+        <div className="ui container" >
         <CommentsList comments={this.props.lesson.comments} />
+        </div>
         <AddCommentForm lessonId={this.props.lesson.id} userId={this.props.currentUser.id} />
         <Button text="Back to Lessons" action={this.props.resetPickedLesson} />
       </div>
