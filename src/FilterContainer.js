@@ -5,9 +5,10 @@ import SubjectFilter from './SubjectFilter'
 
 const FilterContainer = props => {
   return (
-    <div>
+    <div className="ui container" >
       <GradeFilter />
       <SubjectFilter />
+      <br />
     </div>
   )
 }

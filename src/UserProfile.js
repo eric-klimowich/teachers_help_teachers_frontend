@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 const UserProfile = props => {
   if (props.currentUser) {
     return (
-      <div>
+      <div className="ui container" >
         <h1>Hello, {props.currentUser.first_name}!</h1>
         <p>Currently teaching: {props.currentUser.grade_teaching} Grade, {props.currentUser.subject_teaching} Classes.</p>
+        <br />
       </div>
     )
   } else {

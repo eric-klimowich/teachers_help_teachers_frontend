@@ -84,15 +84,20 @@ class AddLessonForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <div className="ui labeled input">
+            <div className="ui blue label">
+              Title:
+            </div>
+            <input
+              type="text"
+              name="title"
+              value={this.state.title}
+              placeholder="lesson title...."
+              onChange={this.handleChange}
+            />
+          </div>
 
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            placeholder="lesson title...."
-            onChange={this.handleChange}
-          />
-
+          <br />
           <br />
 
           <textarea
@@ -103,6 +108,7 @@ class AddLessonForm extends Component {
           />
 
           <br />
+          <br />
 
           <input
             type="text"
@@ -112,6 +118,7 @@ class AddLessonForm extends Component {
             onChange={this.handleChange}
           />
 
+          <br />
           <br />
 
           <select
@@ -128,6 +135,7 @@ class AddLessonForm extends Component {
           </select>
 
           <br />
+          <br />
 
           <select
             name="subject"
@@ -142,6 +150,7 @@ class AddLessonForm extends Component {
             }
           </select>
 
+          <br />
           <br />
 
           <input type="submit" ></input>
