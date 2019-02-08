@@ -12,6 +12,20 @@ export const setLessons = lessons => {
   }
 }
 
+export const setMyLessons = myLessons => {
+  return {
+    type: 'SET_MY_LESSONS',
+    payload: myLessons
+  }
+}
+
+export const setFavoriteLessons = favoriteLessons => {
+  return {
+    type: 'SET_FAVORITE_LESSONS',
+    payload: favoriteLessons
+  }
+}
+
 export const setGrades = grades => {
   return {
     type: 'SET_GRADES',
@@ -95,9 +109,27 @@ export const addNewUser = newUser => {
   }
 }
 
-export const toggleAddLessonForm = () => {
+export const showAddLessonForm = () => {
   return {
-    type: 'TOGGLE_ADD_LESSON_FORM'
+    type: 'SHOW_ADD_LESSON_FORM'
+  }
+}
+
+export const hideAddLessonForm = () => {
+  return {
+    type: 'HIDE_ADD_LESSON_FORM'
+  }
+}
+
+export const showAllLessonsPage = () => {
+  return {
+    type: 'SHOW_ALL_LESSONS_PAGE'
+  }
+}
+
+export const hideAllLessonsPage = () => {
+  return {
+    type: 'HIDE_ALL_LESSONS_PAGE'
   }
 }
 

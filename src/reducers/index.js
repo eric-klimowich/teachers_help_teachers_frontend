@@ -5,12 +5,15 @@ const defaultState = {
   subjectsToFilter: [],
   subjects: [],
   lessons: [],
+  myLessons: [],
+  favoriteLessons: [],
   comments: [],
   pickedLesson: null,
   currentUser: null,
   loginChoice: '',
   showAddLessonForm: false,
-  searchBarInput: ''
+  searchBarInput: '',
+  showAllLessons: false
 
 }
 
@@ -25,6 +28,10 @@ export default function (state = defaultState, action) {
       return {...state, subjects: action.payload}
     case 'SET_LESSONS':
       return {...state, lessons: action.payload}
+    case 'SET_MY_LESSONS':
+      return {...state, myLessons: action.payload}
+    case 'SET_FAVORITE_LESSONS':
+      return {...state, favoriteLessons: action.payload}
     case 'ADD_LESSON':
       return {...state, lessons: [...state.lessons, action.payload]}
     case 'SET_CURRENT_USER':
@@ -45,8 +52,14 @@ export default function (state = defaultState, action) {
       return {...state, loginChoice: action.payload}
     case 'ADD_NEW_USER':
       return {...state, users: [...state.users, action.payload]}
-    case 'TOGGLE_ADD_LESSON_FORM':
-      return {...state, showAddLessonForm: !state.showAddLessonForm}
+    case 'SHOW_ADD_LESSON_FORM':
+      return {...state, showAddLessonForm: true}
+    case 'HIDE_ADD_LESSON_FORM':
+      return {...state, showAddLessonForm: false}
+    case 'SHOW_ALL_LESSONS_PAGE':
+      return {...state, showAllLessons: true}
+    case 'HIDE_ALL_LESSONS_PAGE':
+      return {...state, showAllLessons: false}
     case 'CHANGE_SEARCH_BAR_INPUT':
       return {...state, searchBarInput: action.payload}
     case 'LOGOUT_USER':

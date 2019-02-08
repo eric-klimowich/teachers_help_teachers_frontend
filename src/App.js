@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import './App.css'
-import UserContainer from './UserContainer'
+import ProfileContainer from './ProfileContainer'
 import HomePage from './HomePage'
 import { setUsers } from './actions'
 
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.props.currentUser ? <UserContainer /> : <HomePage />}
+        {this.props.currentUser ? <ProfileContainer /> : <HomePage />}
       </div>
     )
   }
