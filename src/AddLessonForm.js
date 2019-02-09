@@ -113,7 +113,7 @@ class AddLessonForm extends Component {
           <br />
 
           <input
-            type="text"
+            type="file"
             name="file"
             value={this.state.file}
             placeholder="lesson file...."

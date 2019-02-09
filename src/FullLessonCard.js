@@ -13,7 +13,7 @@ class FullLessonCard extends Component {
   }
 
   handleAddUsed = () => {
-    console.log('clicked')
+    // console.log('clicked')
     this.setState({
       timesUsed: this.state.timesUsed + 1
     }, () => this.updateLessonTimesUsed())
@@ -33,7 +33,7 @@ class FullLessonCard extends Component {
   }
 
   favoriteALesson = () => {
-    console.log('clicked')
+    // console.log('clicked')
     fetch('http://localhost:3000/api/v1/favorite_lessons/', {
       method: 'POST',
       headers: {
@@ -49,8 +49,9 @@ class FullLessonCard extends Component {
 
   render() {
     // console.log(this.props)
-    // console.log(props.comments)
-    console.log(this.state)
+    // console.log(this.props.currentUser.id)
+    // console.log(this.props.lesson.user.user_id)
+    // console.log(this.state)
     return(
       <div className="ui card" key={this.props.lesson.key} >
         <div className="content">
@@ -70,16 +71,20 @@ class FullLessonCard extends Component {
           </div>
         </div>
         <div className="extra content">
-          <button className="ui button" onClick={this.favoriteALesson} >Favorite this Lesson</button>
-          <div className="ui animated fade button" tabIndex="0" onClick={this.handleAddUsed}>
-            <div className="visible content">
-              Have you used this lesson?
+          {this.props.currentUser.id === this.props.lesson.user.user_id ? null : <button className="ui button" onClick={this.favoriteALesson} >Favorite this Lesson</button>}
+          {this.props.currentUser.id === this.props.lesson.user.user_id ?
+            <span>Times used: {this.state.timesUsed}</span> :
+            <div>
+            <div className="ui animated fade button" tabIndex="0" onClick={this.handleAddUsed}>
+              <div className="visible content">
+                Have you used this lesson?
+              </div>
+              <div className="hidden content">
+                Yes, I have!
+              </div>
             </div>
-            <div className="hidden content">
-              Yes, I have!
-            </div>
-          </div>
-          <span>Times used: {this.state.timesUsed}</span>
+            <span>Times used: {this.state.timesUsed}</span>
+          </div>}
           <div className="ui container" >
           <CommentsList comments={this.props.lesson.comments} />
           </div>

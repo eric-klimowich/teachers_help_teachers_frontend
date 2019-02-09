@@ -13,7 +13,8 @@ const defaultState = {
   loginChoice: '',
   showAddLessonForm: false,
   searchBarInput: '',
-  showAllLessons: false
+  showAllLessons: false,
+  showAboutPage: false
 
 }
 
@@ -60,6 +61,10 @@ export default function (state = defaultState, action) {
       return {...state, showAllLessons: true}
     case 'HIDE_ALL_LESSONS_PAGE':
       return {...state, showAllLessons: false}
+    case 'SHOW_ABOUT_PAGE':
+      return {...state, showAboutPage: true}
+    case 'HIDE_ABOUT_PAGE':
+      return {...state, showAboutPage: false}
     case 'CHANGE_SEARCH_BAR_INPUT':
       return {...state, searchBarInput: action.payload}
     case 'LOGOUT_USER':

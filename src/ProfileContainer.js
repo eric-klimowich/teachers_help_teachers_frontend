@@ -49,7 +49,6 @@ class ProfileContainer extends Component {
         <div>
           <Nav />
           <UserProfile />
-          <FilterContainer />
           Favorite
           <LessonsContainer lessons={this.props.lessons.filter(lesson => this.props.favoriteLessons.includes(lesson.id))} />
           My

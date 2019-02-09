@@ -8,6 +8,7 @@ import { setLoginChoice } from './actions'
 import { showAddLessonForm } from './actions'
 import { showAllLessonsPage } from './actions'
 import { hideAllLessonsPage } from './actions'
+import { showAboutPage } from './actions'
 
 class Nav extends Component {
 
@@ -29,6 +30,10 @@ class Nav extends Component {
     this.props.hideAllLessonsPage()
   }
 
+  handleShowAboutPage = () => {
+    this.props.showAboutPage()
+  }
+
   renderNavBar = () => {
     if (this.props.currentUser && this.props.showAllLessons) {
       return (
@@ -40,10 +45,13 @@ class Nav extends Component {
             <button className="item" onClick={this.handleHideAllLessons} >
               Back to My Profile
             </button>
-            <button className="item">
-              <SearchBar />
-            </button>
             <div className="right menu">
+              <button className="item">
+              <SearchBar />
+              </button>
+              <button className="item" onClick={this.handleShowAboutPage} >
+                About
+              </button>
               <div className="item">
                 <Logout />
               </div>
@@ -58,13 +66,16 @@ class Nav extends Component {
             <button className="active item">
               Teachers Help Teachers
             </button>
-            <button className="item" onClick={this.handleAddLessonFormToggle} >
-              Add a Lesson
-            </button>
             <button className="item" onClick={this.handleShowAllLessons} >
               View All Lessons
             </button>
             <div className="right menu">
+              <button className="item" onClick={this.handleAddLessonFormToggle} >
+                Add a Lesson
+              </button>
+              <button className="item" onClick={this.handleShowAboutPage} >
+                About
+              </button>
               <div className="item">
                 <Logout />
               </div>
@@ -80,6 +91,9 @@ class Nav extends Component {
               Teachers Help Teachers
             </button>
             <div className="right menu">
+              <button className="item" onClick={this.handleShowAboutPage} >
+                About
+              </button>
               <div className="item">
                 <button
                   className="ui primary button"
@@ -127,7 +141,8 @@ const mapDispatchToProps = dispatch => {
     setLoginChoice: (loginChoice) => dispatch(setLoginChoice(loginChoice)),
     showAddLessonForm: () => dispatch(showAddLessonForm()),
     showAllLessonsPage: () => dispatch(showAllLessonsPage()),
-    hideAllLessonsPage: () => dispatch(hideAllLessonsPage())
+    hideAllLessonsPage: () => dispatch(hideAllLessonsPage()),
+    showAboutPage: () => dispatch(showAboutPage())
   }
 }
 

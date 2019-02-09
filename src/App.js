@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import './App.css'
 import ProfileContainer from './ProfileContainer'
 import HomePage from './HomePage'
+import About from './About'
 import { setUsers } from './actions'
 
 
@@ -15,18 +16,31 @@ class App extends Component {
       .then(users => this.props.setUsers(users))
   }
 
+  renderAppOrAbout = () => {
+    if (this.props.showAboutPage) {
+      return (
+        <About />
+      )
+    } else {
+      return (
+        <div>
+          {this.props.currentUser ? <ProfileContainer /> : <HomePage />}
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
-      <div>
-        {this.props.currentUser ? <ProfileContainer /> : <HomePage />}
-      </div>
+      this.renderAppOrAbout()
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    showAboutPage: state.showAboutPage
   }
 }
 const mapDispatchToProps = dispatch => {
