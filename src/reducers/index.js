@@ -7,6 +7,7 @@ const defaultState = {
   lessons: [],
   myLessons: [],
   favoriteLessons: [],
+  myFavoriteLessons: [],
   comments: [],
   pickedLesson: null,
   currentUser: null,
@@ -14,8 +15,8 @@ const defaultState = {
   showAddLessonForm: false,
   searchBarInput: '',
   showAllLessons: false,
-  showAboutPage: false
-
+  showAboutPage: false,
+  myLessonsChoice: ''
 }
 
 export default function (state = defaultState, action) {
@@ -33,8 +34,12 @@ export default function (state = defaultState, action) {
       return {...state, myLessons: action.payload}
     case 'SET_FAVORITE_LESSONS':
       return {...state, favoriteLessons: action.payload}
+    case 'SET_MY_FAVORITE_LESSONS':
+      return {...state, myFavoriteLessons: action.payload}
     case 'ADD_LESSON':
       return {...state, lessons: [...state.lessons, action.payload]}
+    case 'ADD_LESSON_TO_MY_LESSONS':
+      return {...state, myLessons: [...state.myLessons, action.payload]}
     case 'SET_CURRENT_USER':
       return {...state, currentUser: action.payload}
     case 'ADD_GRADES_TO_FILTER':
@@ -51,6 +56,8 @@ export default function (state = defaultState, action) {
       return {...state, pickedLesson: null}
     case 'SET_LOGIN_CHOICE':
       return {...state, loginChoice: action.payload}
+    case 'RESET_LOGIN_CHOICE':
+      return {...state, loginChoice: ''}
     case 'ADD_NEW_USER':
       return {...state, users: [...state.users, action.payload]}
     case 'SHOW_ADD_LESSON_FORM':
@@ -79,6 +86,12 @@ export default function (state = defaultState, action) {
       return {...state, subjectsToFilter: []}
     case 'RESET_SEARCH_BAR_INPUT':
       return {...state, searchBarInput: ''}
+    case 'SET_MY_LESSONS_CHOICE_TO_FAVORITES':
+      return {...state, myLessonsChoice: 'myFavorites'}
+    case 'SET_MY_LESSONS_CHOICE_TO_MY':
+      return {...state, myLessonsChoice: 'myLessons'}
+    case 'RESET_MY_LESSONS_CHOICE':
+      return {...state, myLessonsChoice: ''}
     default:
       return state
   }

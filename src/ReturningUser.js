@@ -71,9 +71,9 @@ class ReturningUser extends Component {
                 <input
                 className="ui fluid large blue submit button"
                 type="submit"
+                value="Log me in"
                 />
               </div>
-
             </form>
           </div>
         </div>

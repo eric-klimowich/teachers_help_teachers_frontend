@@ -59,7 +59,7 @@ class NewUser extends Component {
         <div className="ui middle aligned center aligned grid" >
           <div className="column" >
             <form className="ui large form" onSubmit={(event) => this.handleSubmitNewUser(event, this.state)}>
-              <div class="ui stacked segment" >
+              <div className="ui stacked segment" >
                 <h2 className="ui blue image header" >
                   <div className="content" >
                     Sign up for an account
@@ -113,6 +113,11 @@ class NewUser extends Component {
                     />
                   </div>
                 </div>
+                <input
+                  className="ui fluid large blue submit button"
+                  type="submit"
+                  value="Sign me up"
+                />
               </div>
             </form>
           </div>

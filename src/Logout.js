@@ -6,6 +6,10 @@ import { resetGradesToFilter } from './actions'
 import { resetSubjectsToFilter } from './actions'
 import { resetSearchBarInput } from './actions'
 import { resetPickedLesson } from './actions'
+import { resetLoginChoice } from './actions'
+import { resetMyLessonsChoice } from './actions'
+import { hideAddLessonForm } from './actions'
+import { hideAllLessonsPage } from './actions'
 
 class Logout extends Component {
 
@@ -15,6 +19,10 @@ class Logout extends Component {
     this.props.resetSubjectsToFilter()
     this.props.resetSearchBarInput()
     this.props.resetPickedLesson()
+    this.props.resetLoginChoice()
+    this.props.resetMyLessonsChoice()
+    this.props.hideAddLessonForm()
+    this.props.hideAllLessonsPage()
   }
 
   render() {
@@ -35,7 +43,11 @@ const mapDispatchToProps = dispatch => {
     resetGradesToFilter: () => dispatch(resetGradesToFilter()),
     resetSubjectsToFilter: () => dispatch(resetSubjectsToFilter()),
     resetSearchBarInput: () => dispatch(resetSearchBarInput()),
-    resetPickedLesson: () => dispatch(resetPickedLesson())
+    resetPickedLesson: () => dispatch(resetPickedLesson()),
+    resetLoginChoice: () => dispatch(resetLoginChoice()),
+    resetMyLessonsChoice: () => dispatch(resetMyLessonsChoice()),
+    hideAddLessonForm: () => dispatch(hideAddLessonForm()),
+    hideAllLessonsPage: () => dispatch(hideAllLessonsPage())
   }
 }
 

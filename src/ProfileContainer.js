@@ -3,12 +3,17 @@ import { connect } from 'react-redux'
 
 import Nav from './Nav'
 import UserProfile from './UserProfile'
+import LessonStatistics from './LessonStatistics'
 import AddLessonForm from './AddLessonForm'
 import FilterContainer from './FilterContainer'
 import LessonsContainer from './LessonsContainer'
+import Button from './Button'
 import { setLessons } from './actions'
 import { setMyLessons } from './actions'
 import { setFavoriteLessons } from './actions'
+import { setMyFavoriteLessons } from './actions'
+import { resetMyLessonsChoice } from './actions'
+import { resetPickedLesson } from './actions'
 
 
 class ProfileContainer extends Component {
@@ -23,7 +28,13 @@ class ProfileContainer extends Component {
       .then(lessons => {
         this.props.setLessons(lessons)
         this.props.setMyLessons(lessons.filter(lesson => lesson.user.user_id === this.props.currentUser.id))
+        this.props.setMyFavoriteLessons(lessons.filter(lesson => this.props.favoriteLessons.includes(lesson.id)))
       })
+  }
+
+  handleBackFromLessonCard = () => {
+    this.props.resetMyLessonsChoice()
+    this.props.resetPickedLesson()
   }
 
   renderProfilePage = () => {
@@ -40,21 +51,37 @@ class ProfileContainer extends Component {
       return (
         <div>
           <Nav />
-          <UserProfile />
           <AddLessonForm />
         </div>
       )
     } else {
-      return (
-        <div>
-          <Nav />
-          <UserProfile />
-          Favorite
-          <LessonsContainer lessons={this.props.lessons.filter(lesson => this.props.favoriteLessons.includes(lesson.id))} />
-          My
-          <LessonsContainer lessons={this.props.myLessons} />
-        </div>
-      )
+      if (this.props.myLessonsChoice === 'myFavorites') {
+        return (
+          <div>
+            <Nav />
+            <UserProfile />
+            <LessonsContainer lessons={this.props.myFavoriteLessons} />
+            <Button action={this.handleBackFromLessonCard} text="Back to Profile" />
+          </div>
+        )
+      } else if (this.props.myLessonsChoice === 'myLessons') {
+        return (
+          <div>
+            <Nav />
+            <UserProfile />
+            <LessonsContainer lessons={this.props.myLessons} />
+            <Button action={this.handleBackFromLessonCard} text="Back to Profile" />
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            <Nav />
+            <UserProfile />
+            <LessonStatistics />
+          </div>
+        )
+      }
     }
   }
 
@@ -73,9 +100,11 @@ const mapStateToProps = state => {
     lessons: state.lessons,
     myLessons: state.myLessons,
     favoriteLessons: state.favoriteLessons,
+    myFavoriteLessons: state.myFavoriteLessons,
     currentUser: state.currentUser,
     showAddLessonForm: state.showAddLessonForm,
-    showAllLessons: state.showAllLessons
+    showAllLessons: state.showAllLessons,
+    myLessonsChoice: state.myLessonsChoice
   }
 }
 
@@ -83,8 +112,17 @@ const mapDispatchToProps = dispatch => {
   return {
     setLessons: (lessons) => dispatch(setLessons(lessons)),
     setMyLessons: (myLessons) => dispatch(setMyLessons(myLessons)),
-    setFavoriteLessons: (favoriteLessons) => dispatch(setFavoriteLessons(favoriteLessons))
+    setFavoriteLessons: (favoriteLessons) => dispatch(setFavoriteLessons(favoriteLessons)),
+    setMyFavoriteLessons: (myFavoriteLessons) => dispatch(setMyFavoriteLessons(myFavoriteLessons)),
+    resetMyLessonsChoice: () => dispatch(resetMyLessonsChoice()),
+    resetPickedLesson: () => dispatch(resetPickedLesson())
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer)
+
+
+// Favorite
+// <LessonsContainer lessons={this.props.lessons.filter(lesson => this.props.favoriteLessons.includes(lesson.id))} />
+// My
+// <LessonsContainer lessons={this.props.myLessons} />

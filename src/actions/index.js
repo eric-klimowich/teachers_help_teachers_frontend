@@ -26,6 +26,13 @@ export const setFavoriteLessons = favoriteLessons => {
   }
 }
 
+export const setMyFavoriteLessons = myFavoriteLessons => {
+  return {
+    type: 'SET_MY_FAVORITE_LESSONS',
+    payload: myFavoriteLessons
+  }
+}
+
 export const setGrades = grades => {
   return {
     type: 'SET_GRADES',
@@ -43,6 +50,13 @@ export const setSubjects = subjects => {
 export const addLesson = newLesson => {
   return {
     type: 'ADD_LESSON',
+    payload: newLesson
+  }
+}
+
+export const addLessonToMyLessons = newLesson => {
+  return {
+    type: 'ADD_LESSON_TO_MY_LESSONS',
     payload: newLesson
   }
 }
@@ -99,6 +113,12 @@ export const setLoginChoice = loginChoice => {
   return {
     type: 'SET_LOGIN_CHOICE',
     payload: loginChoice
+  }
+}
+
+export const resetLoginChoice = () => {
+  return {
+    type: 'RESET_LOGIN_CHOICE',
   }
 }
 
@@ -180,5 +200,23 @@ export const resetSubjectsToFilter = () => {
 export const resetSearchBarInput = () => {
   return {
     type: 'RESET_SEARCH_BAR_INPUT'
+  }
+}
+
+export const setMyLessonsChoiceToFavorites = () => {
+  return {
+    type: 'SET_MY_LESSONS_CHOICE_TO_FAVORITES'
+  }
+}
+
+export const setMyLessonsChoiceToMy = () => {
+  return {
+    type: 'SET_MY_LESSONS_CHOICE_TO_MY'
+  }
+}
+
+export const resetMyLessonsChoice = () => {
+  return {
+    type: 'RESET_MY_LESSONS_CHOICE'
   }
 }
