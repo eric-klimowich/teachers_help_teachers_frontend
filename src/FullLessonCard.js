@@ -48,7 +48,7 @@ class FullLessonCard extends Component {
   }
 
   render() {
-    // console.log(this.props)
+    console.log(this.props.lesson)
     // console.log(this.props.currentUser.id)
     // console.log(this.props.lesson.user.user_id)
     // console.log(this.state)
@@ -65,6 +65,7 @@ class FullLessonCard extends Component {
                 <div className="summary">
                    {this.props.lesson.description}
                    <p>Grade: {this.props.lesson.grade.level}, Subject: {this.props.lesson.grade.subject}</p>
+                   <a href={`http://localhost:3000/api/v1/lessons/${this.props.lesson.id}`}>{this.props.lesson.file_name}</a>
                 </div>
               </div>
             </div>

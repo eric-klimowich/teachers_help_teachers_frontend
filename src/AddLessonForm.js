@@ -14,6 +14,7 @@ class AddLessonForm extends Component {
     title: '',
     description: '',
     file: '',
+    fileName: '',
     rating: null,
     timesUsed: 0,
     grade: '',
@@ -21,17 +22,29 @@ class AddLessonForm extends Component {
   }
 
   handleChange = event => {
-    // console.log(event.target.value)
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+    console.log(event.target.files)
+    console.log(event.target.value)
+    if (event.target.files) {
+      this.setState({
+        [event.target.name]: event.target.files[0]
+      })
+    } else {
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+    }
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
-    // console.log(this.state.grade)
-    // console.log(this.props.currentUser.id)
-    // this.props.addLesson(this.state)
+  getBase64 = file => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = error => reject(error);
+  });
+}
+
+  handleSubmitWithFile = fileData => {
     fetch('http://localhost:3000/api/v1/grade_levels', {
       method: 'POST',
       headers: {
@@ -69,7 +82,8 @@ class AddLessonForm extends Component {
             body: JSON.stringify({
               title: this.state.title,
               description: this.state.description,
-              file: this.state.file,
+              file: fileData,
+              file_name: this.state.fileName,
               times_used: this.state.timesUsed,
               grade_subject_id: addedSubject.id
             })
@@ -78,14 +92,25 @@ class AddLessonForm extends Component {
           .then(addedLesson => this.props.addLesson(addedLesson))
         })
       })
+  }
 
+  convertToBase64 = () => {
+    this.getBase64(this.state.file).then(data => this.handleSubmitWithFile(data))
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    console.log(this.state.file)
+    this.setState({
+      fileName: this.state.file.name
+    }, () => this.convertToBase64())
   }
 
   render() {
-    // console.log(this.props)
+    console.log(this.state)
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} >
           <div className="ui labeled input">
             <div className="ui blue label">
               Title:
@@ -115,7 +140,7 @@ class AddLessonForm extends Component {
           <input
             type="file"
             name="file"
-            value={this.state.file}
+            // value={this.state.file}
             placeholder="lesson file...."
             onChange={this.handleChange}
           />
