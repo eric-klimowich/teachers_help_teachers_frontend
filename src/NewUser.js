@@ -55,68 +55,69 @@ class NewUser extends Component {
   render() {
     // console.log(this.props)
     return (
-      <form onSubmit={(event) => this.handleSubmitNewUser(event, this.state)}>
-        <div className="ui labeled input">
-          <div className="ui blue label">
-            Username:
+      <div className="background-picture" >
+        <div className="ui middle aligned center aligned grid" >
+          <div className="column" >
+            <form className="ui large form" onSubmit={(event) => this.handleSubmitNewUser(event, this.state)}>
+              <div class="ui stacked segment" >
+                <h2 className="ui blue image header" >
+                  <div className="content" >
+                    Sign up for an account
+                  </div>
+                </h2>
+                <div className="field" >
+                  <div className="ui left icon input" >
+                    <i className="user icon" ></i>
+                    <input
+                    type="text"
+                    name="username"
+                    value={this.state.username}
+                    placeholder="enter username..."
+                    onChange={this.handleChangeUserInput}
+                    />
+                  </div>
+                </div>
+                <div className="field" >
+                  <div className="ui left icon input" >
+                    <i className="lock icon" ></i>
+                    <input
+                      type="text"
+                      name="password"
+                      value={this.state.password}
+                      placeholder="enter password..."
+                      onChange={this.handleChangeUserInput}
+                    />
+                  </div>
+                </div>
+                <div className="field" >
+                  <div className="ui left icon input" >
+                    <i className="lock icon" ></i>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={this.state.firstName}
+                      placeholder="enter first name..."
+                      onChange={this.handleChangeUserInput}
+                    />
+                  </div>
+                </div>
+                <div className="field" >
+                  <div className="ui left icon input" >
+                    <i className="lock icon" ></i>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={this.state.lastName}
+                      placeholder="enter last name..."
+                      onChange={this.handleChangeUserInput}
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
-          <input
-          type="text"
-          name="username"
-          value={this.state.username}
-          placeholder="enter username..."
-          onChange={this.handleChangeUserInput}
-          />
         </div>
-        <br />
-        <br />
-        <div className="ui labeled input">
-          <div className="ui blue label">
-            Password:
-          </div>
-          <input
-            type="text"
-            name="password"
-            value={this.state.password}
-            placeholder="enter password..."
-            onChange={this.handleChangeUserInput}
-          />
-        </div>
-        <br />
-        <br />
-        <div className="ui labeled input">
-          <div className="ui blue label">
-            First Name:
-          </div>
-          <input
-            type="text"
-            name="firstName"
-            value={this.state.firstName}
-            placeholder="enter first name..."
-            onChange={this.handleChangeUserInput}
-          />
-        </div>
-        <br />
-        <br />
-        <div className="ui labeled input">
-          <div className="ui blue label">
-            Last Name:
-          </div>
-          <input
-            type="text"
-            name="lastName"
-            value={this.state.lastName}
-            placeholder="enter last name..."
-            onChange={this.handleChangeUserInput}
-          />
-        </div>
-        <br />
-        <br />
-        <input
-          className="ui red button"
-          type="submit"
-        />
-      </form>
+      </div>
     )
   }
 }
