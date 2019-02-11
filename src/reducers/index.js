@@ -40,6 +40,8 @@ export default function (state = defaultState, action) {
       return {...state, lessons: [...state.lessons, action.payload]}
     case 'ADD_LESSON_TO_MY_LESSONS':
       return {...state, myLessons: [...state.myLessons, action.payload]}
+    case 'ADD_LESSON_TO_MY_FAVORITE_LESSONS':
+      return {...state, myFavoriteLessons: [...state.myFavoriteLessons, action.payload]}
     case 'SET_CURRENT_USER':
       return {...state, currentUser: action.payload}
     case 'ADD_GRADES_TO_FILTER':

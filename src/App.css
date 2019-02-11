@@ -1,15 +1,18 @@
 body {
-  background-color: rgb(61, 198, 180);
+  /* background-color: rgb(61, 198, 180); */
+  background-image: url("http://www.5wpr.com/new/wp-content/uploads/2014/08/back-school-marketing1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.background-picture {
+/* .background-picture {
   background-image: url("http://www.5wpr.com/new/wp-content/uploads/2014/08/back-school-marketing1.jpg");
   position: fixed;
   width: 100%;
   height: 100%;
   left: 0;
   top: 8%;
-}
+} */
 
 #homepage-introduction {
   color: white;

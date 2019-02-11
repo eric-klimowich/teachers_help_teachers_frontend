@@ -60,6 +60,12 @@ export const addLessonToMyLessons = newLesson => {
     payload: newLesson
   }
 }
+export const addLessonToMyFavoriteLessons = newLesson => {
+  return {
+    type: 'ADD_LESSON_TO_MY_FAVORITE_LESSONS',
+    payload: newLesson
+  }
+}
 
 export const setCurrentUser = currentUser => {
   return {

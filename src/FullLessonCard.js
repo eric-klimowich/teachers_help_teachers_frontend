@@ -5,6 +5,7 @@ import CommentsList from './CommentsList'
 import AddCommentForm from './AddCommentForm'
 import Button from './Button'
 import { resetPickedLesson } from './actions'
+import { addLessonToMyFavoriteLessons } from './actions'
 
 class FullLessonCard extends Component {
 
@@ -45,10 +46,11 @@ class FullLessonCard extends Component {
         user_id: this.props.currentUser.id
       })
     })
+    this.props.addLessonToMyFavoriteLessons(this.props.pickedLesson)
   }
 
   render() {
-    // console.log(this.props.lesson)
+    console.log(this.props.pickedLesson)
     // console.log(this.props.currentUser.id)
     // console.log(this.props.lesson.user.user_id)
     // console.log(this.state)
@@ -99,13 +101,15 @@ class FullLessonCard extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    pickedLesson: state.pickedLesson
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    resetPickedLesson: () => dispatch(resetPickedLesson())
+    resetPickedLesson: () => dispatch(resetPickedLesson()),
+    addLessonToMyFavoriteLessons: (lesson) => dispatch(addLessonToMyFavoriteLessons(lesson))
   }
 }
 

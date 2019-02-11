@@ -10,6 +10,7 @@ import { showAllLessonsPage } from './actions'
 import { hideAllLessonsPage } from './actions'
 import { showAboutPage } from './actions'
 import { resetPickedLesson } from './actions'
+import { hideAddLessonForm } from './actions'
 
 class Nav extends Component {
 
@@ -30,6 +31,7 @@ class Nav extends Component {
   handleHideAllLessons = () => {
     this.props.hideAllLessonsPage()
     this.props.resetPickedLesson()
+    this.props.hideAddLessonForm()
   }
 
   handleShowAboutPage = () => {
@@ -145,7 +147,8 @@ const mapDispatchToProps = dispatch => {
     showAllLessonsPage: () => dispatch(showAllLessonsPage()),
     hideAllLessonsPage: () => dispatch(hideAllLessonsPage()),
     showAboutPage: () => dispatch(showAboutPage()),
-    resetPickedLesson: () => dispatch(resetPickedLesson())
+    resetPickedLesson: () => dispatch(resetPickedLesson()),
+    hideAddLessonForm: () => dispatch(hideAddLessonForm())
   }
 }
 
