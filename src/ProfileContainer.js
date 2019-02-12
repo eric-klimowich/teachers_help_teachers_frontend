@@ -38,7 +38,14 @@ class ProfileContainer extends Component {
   }
 
   renderProfilePage = () => {
-    if (this.props.showAllLessons) {
+    if (this.props.showAllLessons && this.props.pickedLesson) {
+      return (
+        <div>
+          <Nav />
+          <LessonsContainer lessons={this.props.lessons} />
+        </div>
+      )
+    } else if (this.props.showAllLessons) {
       return (
         <div>
           <Nav />
@@ -104,7 +111,8 @@ const mapStateToProps = state => {
     currentUser: state.currentUser,
     showAddLessonForm: state.showAddLessonForm,
     showAllLessons: state.showAllLessons,
-    myLessonsChoice: state.myLessonsChoice
+    myLessonsChoice: state.myLessonsChoice,
+    pickedLesson: state.pickedLesson
   }
 }
 

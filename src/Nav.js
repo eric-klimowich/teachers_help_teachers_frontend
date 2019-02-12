@@ -39,7 +39,28 @@ class Nav extends Component {
   }
 
   renderNavBar = () => {
-    if (this.props.currentUser && this.props.showAllLessons) {
+    if (this.props.currentUser && this.props.showAllLessons && this.props.pickedLesson) {
+      return (
+        <div className="navbar-color" >
+          <div className="ui large menu">
+            <button className="active item">
+              Teachers Help Teachers
+            </button>
+            <button className="item" onClick={this.handleHideAllLessons} >
+              Back to My Profile
+            </button>
+            <div className="right menu">
+              <button className="item" onClick={this.handleShowAboutPage} >
+                About
+              </button>
+              <div className="item">
+                <Logout />
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    } else if (this.props.currentUser && this.props.showAllLessons) {
       return (
         <div>
           <div className="ui large menu">
@@ -136,7 +157,8 @@ const mapStateToProps = state => {
   return {
     loginChoice: state.loginChoice,
     currentUser: state.currentUser,
-    showAllLessons: state.showAllLessons
+    showAllLessons: state.showAllLessons,
+    pickedLesson: state.pickedLesson
   }
 }
 

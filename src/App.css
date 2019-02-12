@@ -14,8 +14,9 @@ body {
   top: 8%;
 } */
 
-#homepage-introduction {
+.chalkboard-writing {
   color: white;
+  font-family: chalkduster, fantasy;
 }
 
 

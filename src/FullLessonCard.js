@@ -50,7 +50,7 @@ class FullLessonCard extends Component {
   }
 
   render() {
-    console.log(this.props.pickedLesson)
+    // console.log(this.props.pickedLesson)
     // console.log(this.props.currentUser.id)
     // console.log(this.props.lesson.user.user_id)
     // console.log(this.state)

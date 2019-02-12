@@ -5,8 +5,8 @@ const UserProfile = props => {
   if (props.currentUser) {
     return (
       <div className="ui container" >
-        <h1>Hello, {props.currentUser.first_name}!</h1>
-        <p>Currently teaching: {props.currentUser.grade_teaching} Grade, {props.currentUser.subject_teaching} Classes.</p>
+        <h1 className="chalkboard-writing" >Hello, {props.currentUser.first_name}!</h1>
+        <p className="chalkboard-writing" >Currently teaching: {props.currentUser.grade_teaching} Grade, {props.currentUser.subject_teaching} Classes.</p>
         <br />
       </div>
     )

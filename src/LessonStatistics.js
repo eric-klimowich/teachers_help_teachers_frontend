@@ -10,18 +10,22 @@ class LessonStatistics extends Component {
     // console.log(this.props.myLessonsChoice)
     return (
       <div>
-        Our community has <strong>{this.props.lessons.length} lessons</strong> for you to choose from!
-        <br />
-        To view all available lessons, click "View All Lessons" above.
-        <br />
-        <br />
-        You currently have {this.props.myFavoriteLessons.length} lessons saved to your Favorites.
-        <br />
+        <h3 className="chalkboard-writing" >
+          Our community has <strong>{this.props.lessons.length} lessons</strong> for you to choose from!
+          <br />
+          To view all available lessons, click "View All Lessons" above.
+          <br />
+          <br />
+          You currently have <strong>{this.props.myFavoriteLessons.length}</strong> lessons saved to your Favorites.
+          <br />
+        </h3>
         <Button action={this.props.setMyLessonsChoiceToFavorites} text="Click to View Favorites" />
         <br />
         <br />
-        You have currently submitted {this.props.myLessons.length} lessons of your own to the community.
-        <br />
+        <h3 className="chalkboard-writing" >
+          You have currently submitted <strong>{this.props.myLessons.length}</strong> lessons of your own to the community.
+          <br />
+        </h3>
         <Button action={this.props.setMyLessonsChoiceToMy} text="Click to View My Lessons" />
       </div>
     )
