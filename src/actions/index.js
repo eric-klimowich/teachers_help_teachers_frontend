@@ -26,6 +26,13 @@ export const setFavoriteLessons = favoriteLessons => {
   }
 }
 
+export const setFavoriteLessonIds = lessonIds => {
+  return {
+    type: 'SET_FAVORITE_LESSON_IDS',
+    payload: lessonIds
+  }
+}
+
 export const setMyFavoriteLessons = myFavoriteLessons => {
   return {
     type: 'SET_MY_FAVORITE_LESSONS',
@@ -60,10 +67,32 @@ export const addLessonToMyLessons = newLesson => {
     payload: newLesson
   }
 }
+
 export const addLessonToMyFavoriteLessons = newLesson => {
   return {
     type: 'ADD_LESSON_TO_MY_FAVORITE_LESSONS',
     payload: newLesson
+  }
+}
+
+export const removeLessonFromMyFavoriteLessons = lesson => {
+  return {
+    type: 'REMOVE_LESSON_FROM_MY_FAVORITE_LESSONS',
+    payload: lesson
+  }
+}
+
+export const removeLessonIdFromFavoriteLessonIds = lesson => {
+  return {
+    type: 'REMOVE_LESSONID_FROM_FAVORITE_LESSON_IDS',
+    payload: lesson
+  }
+}
+
+export const addUsedLessonId = lessonId => {
+  return {
+    type: 'ADD_USED_LESSON_ID',
+    payload: lessonId
   }
 }
 

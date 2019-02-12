@@ -14,6 +14,10 @@ import { setFavoriteLessons } from './actions'
 import { setMyFavoriteLessons } from './actions'
 import { resetMyLessonsChoice } from './actions'
 import { resetPickedLesson } from './actions'
+import { addLessonToMyFavoriteLessons } from './actions'
+import { setFavoriteLessonIds } from './actions'
+import { removeLessonFromMyFavoriteLessons } from './actions'
+import { removeLessonIdFromFavoriteLessonIds } from './actions'
 
 
 class ProfileContainer extends Component {
@@ -21,15 +25,22 @@ class ProfileContainer extends Component {
   componentDidMount() {
     fetch('http://localhost:3000/api/v1/favorite_lessons')
       .then(r => r.json())
-      .then(favoriteLessons => favoriteLessons.filter(favLesson => favLesson.user_id === this.props.currentUser.id))
-      .then(myFavLessons => this.props.setFavoriteLessons(myFavLessons.map(favLesson => favLesson.lesson_id)))
+      .then(favoriteLessons => {
+        // console.log(favoriteLessons)
+        return favoriteLessons.filter(favLesson => favLesson.user_id === this.props.currentUser.id)
+      })
+      .then(myFavLessons => {
+        // console.log(myFavLessons)
+        this.props.setFavoriteLessons(myFavLessons)
+        this.props.setFavoriteLessonIds(myFavLessons.map(favLesson => favLesson.lesson_id))
+      })
 
     fetch('http://localhost:3000/api/v1/lessons')
       .then(r => r.json())
       .then(lessons => {
         this.props.setLessons(lessons)
         this.props.setMyLessons(lessons.filter(lesson => lesson.user.user_id === this.props.currentUser.id))
-        this.props.setMyFavoriteLessons(lessons.filter(lesson => this.props.favoriteLessons.includes(lesson.id)))
+        this.props.setMyFavoriteLessons(lessons.filter(lesson => this.props.favoriteLessonIds.includes(lesson.id)))
       })
   }
 
@@ -38,12 +49,48 @@ class ProfileContainer extends Component {
     this.props.resetPickedLesson()
   }
 
+  favoriteALesson = (lesson) => {
+    console.log('clicked')
+    console.log(lesson)
+    fetch('http://localhost:3000/api/v1/favorite_lessons/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        lesson_id: lesson.id,
+        user_id: this.props.currentUser.id
+      })
+    })
+    this.props.addLessonToMyFavoriteLessons(lesson)
+    console.log(this.props.myFavoriteLessons)
+    this.props.resetPickedLesson()
+  }
+
+  removeLessonFromFavorites = (lesson) => {
+    // console.log('clicked')
+    // console.log(lesson)
+    const favoriteLessonToRemove = this.props.favoriteLessons.find(favLesson => favLesson.lesson_id === lesson.id)
+    // console.log(favoriteLessonToRemove)
+    this.props.removeLessonFromMyFavoriteLessons(favoriteLessonToRemove)
+    this.props.removeLessonIdFromFavoriteLessonIds(favoriteLessonToRemove)
+    fetch(`http://localhost:3000/api/v1/favorite_lessons/${favoriteLessonToRemove.id}`, {
+      method: 'DELETE'
+    })
+    this.props.resetPickedLesson()
+  }
+
   renderProfilePage = () => {
     if (this.props.showAllLessons && this.props.pickedLesson) {
       return (
         <div>
           <Nav />
-          <LessonsContainer lessons={this.props.lessons} />
+          <LessonsContainer
+            lessons={this.props.lessons}
+            favoriteAction={this.favoriteALesson}
+            favoriteButtonText="Add to Favorites"
+          />
         </div>
       )
     } else if (this.props.showAllLessons) {
@@ -51,7 +98,11 @@ class ProfileContainer extends Component {
         <div>
           <Nav />
           <FilterContainer />
-          <LessonsContainer lessons={this.props.lessons} />
+          <LessonsContainer
+            lessons={this.props.lessons}
+            favoriteAction={this.favoriteALesson}
+            favoriteButtonText="Add to Favorites"
+          />
         </div>
       )
     }
@@ -68,7 +119,11 @@ class ProfileContainer extends Component {
           <div>
             <Nav />
             <UserProfile />
-            <LessonsContainer lessons={this.props.myFavoriteLessons} />
+            <LessonsContainer
+              lessons={this.props.myFavoriteLessons}
+              favoriteAction={this.removeLessonFromFavorites}
+              favoriteButtonText="Remove from Favorites"
+            />
             <Button action={this.handleBackFromLessonCard} text="Back to Profile" />
           </div>
         )
@@ -96,7 +151,11 @@ class ProfileContainer extends Component {
   render() {
     // console.log(this.props.lessons)
     // console.log(this.props.myLessons)
+    // console.log(this.props.lessons)
+    // console.log(this.props.myLessons)
     // console.log(this.props.favoriteLessons)
+    // console.log(this.props.favoriteLessonIds)
+    // console.log(this.props.myFavoriteLessons)
     return (
       this.renderProfilePage()
     )
@@ -108,6 +167,7 @@ const mapStateToProps = state => {
     lessons: state.lessons,
     myLessons: state.myLessons,
     favoriteLessons: state.favoriteLessons,
+    favoriteLessonIds: state.favoriteLessonIds,
     myFavoriteLessons: state.myFavoriteLessons,
     currentUser: state.currentUser,
     showAddLessonForm: state.showAddLessonForm,
@@ -124,7 +184,11 @@ const mapDispatchToProps = dispatch => {
     setFavoriteLessons: (favoriteLessons) => dispatch(setFavoriteLessons(favoriteLessons)),
     setMyFavoriteLessons: (myFavoriteLessons) => dispatch(setMyFavoriteLessons(myFavoriteLessons)),
     resetMyLessonsChoice: () => dispatch(resetMyLessonsChoice()),
-    resetPickedLesson: () => dispatch(resetPickedLesson())
+    resetPickedLesson: () => dispatch(resetPickedLesson()),
+    addLessonToMyFavoriteLessons: (lesson) => dispatch(addLessonToMyFavoriteLessons(lesson)),
+    setFavoriteLessonIds: (lessonIds) => dispatch(setFavoriteLessonIds(lessonIds)),
+    removeLessonFromMyFavoriteLessons: (lesson) => dispatch(removeLessonFromMyFavoriteLessons(lesson)),
+    removeLessonIdFromFavoriteLessonIds: (lesson) => dispatch(removeLessonIdFromFavoriteLessonIds(lesson))
   }
 }
 

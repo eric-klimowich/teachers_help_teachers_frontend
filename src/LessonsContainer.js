@@ -26,7 +26,7 @@ class LessonsContainer extends Component {
     // console.log(this.props.searchBarInput)
     // console.log(this.props.subjectsToFilter)
     return (
-      <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterLessonsBySubject().filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase())) : this.props.lessons.filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()))} />
+      <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterLessonsBySubject().filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase())) : this.props.lessons.filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()))} favoriteAction={this.props.favoriteAction} favoriteButtonText={this.props.favoriteButtonText} />
     )
   }
 }

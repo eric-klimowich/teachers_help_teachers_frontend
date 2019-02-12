@@ -7,7 +7,9 @@ const defaultState = {
   lessons: [],
   myLessons: [],
   favoriteLessons: [],
+  favoriteLessonIds: [],
   myFavoriteLessons: [],
+  usedLessonIds: [],
   comments: [],
   pickedLesson: null,
   currentUser: null,
@@ -34,6 +36,8 @@ export default function (state = defaultState, action) {
       return {...state, myLessons: action.payload}
     case 'SET_FAVORITE_LESSONS':
       return {...state, favoriteLessons: action.payload}
+    case 'SET_FAVORITE_LESSON_IDS':
+      return {...state, favoriteLessonIds: action.payload}
     case 'SET_MY_FAVORITE_LESSONS':
       return {...state, myFavoriteLessons: action.payload}
     case 'ADD_LESSON':
@@ -42,6 +46,12 @@ export default function (state = defaultState, action) {
       return {...state, myLessons: [...state.myLessons, action.payload]}
     case 'ADD_LESSON_TO_MY_FAVORITE_LESSONS':
       return {...state, myFavoriteLessons: [...state.myFavoriteLessons, action.payload]}
+    case 'REMOVE_LESSON_FROM_MY_FAVORITE_LESSONS':
+      return {...state, myFavoriteLessons: [...state.myFavoriteLessons.filter(lesson => lesson.id !== action.payload.lesson_id)]}
+    case 'REMOVE_LESSONID_FROM_FAVORITE_LESSON_IDS':
+      return {...state, favoriteLessonIds: [...state.favoriteLessonIds.filter(lessonId => lessonId !== action.payload.lesson_id)]}
+    case 'ADD_USED_LESSON_ID':
+      return {...state, usedLessonIds: [...state.usedLessonIds, action.payload]}
     case 'SET_CURRENT_USER':
       return {...state, currentUser: action.payload}
     case 'ADD_GRADES_TO_FILTER':

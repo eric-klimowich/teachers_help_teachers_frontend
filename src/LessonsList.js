@@ -14,7 +14,11 @@ class LessonsList extends Component {
   renderLessons = () => {
     if (this.props.pickedLesson) {
       return (
-        <FullLessonCard lesson={this.props.pickedLesson} />
+        <FullLessonCard
+          lesson={this.props.pickedLesson}
+          favoriteAction={this.props.favoriteAction}
+          favoriteButtonText={this.props.favoriteButtonText}
+        />
       )
     } else {
       return (
