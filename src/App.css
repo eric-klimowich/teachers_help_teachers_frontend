@@ -5,6 +5,25 @@ body {
   background-attachment: fixed;
 }
 
+.chalkboard-writing {
+  color: white;
+  font-family: chalkduster, fantasy;
+}
+
+.marker-font {
+  font-family: "Marker Felt", fantasy;
+}
+
+.ui.centered.card {
+  height: 50%;
+  width: 80%;
+}
+
+.ui.middle.aligned.center.aligned.grid {
+  height: 50%;
+  width: 80%;
+}
+
 /* .background-picture {
   background-image: url("http://www.5wpr.com/new/wp-content/uploads/2014/08/back-school-marketing1.jpg");
   position: fixed;
@@ -14,14 +33,7 @@ body {
   top: 8%;
 } */
 
-.chalkboard-writing {
-  color: white;
-  font-family: chalkduster, fantasy;
-}
 
-.marker-font {
-  font-family: "Marker Felt", fantasy;
-}
 
 
 /* .App {

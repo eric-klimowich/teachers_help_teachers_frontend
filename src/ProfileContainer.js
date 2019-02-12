@@ -193,9 +193,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer)
-
-
-// Favorite
-// <LessonsContainer lessons={this.props.lessons.filter(lesson => this.props.favoriteLessons.includes(lesson.id))} />
-// My
-// <LessonsContainer lessons={this.props.myLessons} />

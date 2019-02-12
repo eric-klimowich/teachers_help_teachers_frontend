@@ -38,7 +38,7 @@ class FullLessonCard extends Component {
     // console.log(this.props.pickedLesson)
     // console.log(this.props.currentUser.id)
     // console.log(this.props.lesson.user.user_id)
-    console.log(this.state)
+    // console.log(this.state)
     return(
       <div className="ui centered card" key={this.props.lesson.key} >
         <div className="content">
