@@ -46,7 +46,7 @@ class ReturningUser extends Component {
                 </h2>
                 <div className="field" >
                   <div className="ui left icon input" >
-                    <i className="user icon" ></i>
+                    <i className="user circle icon" ></i>
                     <input
                     type="text"
                     name="username"

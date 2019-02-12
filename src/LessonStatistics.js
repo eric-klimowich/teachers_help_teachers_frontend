@@ -16,14 +16,14 @@ class LessonStatistics extends Component {
           To view all available lessons, click "View All Lessons" above.
           <br />
           <br />
-          You currently have <strong>{this.props.myFavoriteLessons.length}</strong> lessons saved to your Favorites.
+          You currently have <strong>{this.props.myFavoriteLessons.length} lessons</strong> saved to your Favorites.
           <br />
         </h3>
         <Button action={this.props.setMyLessonsChoiceToFavorites} text="Click to View Favorites" />
         <br />
         <br />
         <h3 className="chalkboard-writing" >
-          You have currently submitted <strong>{this.props.myLessons.length}</strong> lessons of your own to the community.
+          You have currently submitted <strong>{this.props.myLessons.length} lessons</strong> of your own to the community.
           <br />
         </h3>
         <Button action={this.props.setMyLessonsChoiceToMy} text="Click to View My Lessons" />

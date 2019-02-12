@@ -4,13 +4,18 @@ import { connect } from 'react-redux'
 import { addNewUser } from './actions'
 import { setCurrentUser } from './actions'
 
+const grades = ["K", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"]
+const subjects = ["ELA", "Math", "Science", "Social Studies", "Art", "Music", "PE"]
+
 class NewUser extends Component {
 
   state = {
     username: '',
     password: '',
     firstName: '',
-    lastName: ''
+    lastName: '',
+    gradeTeaching: '',
+    subjectTeaching: ''
   }
 
   handleChangeUserInput = event => {
@@ -36,6 +41,8 @@ class NewUser extends Component {
         password: newUser.password,
         first_name: newUser.firstName,
         last_name: newUser.lastName,
+        grade_teaching: newUser.gradeTeaching,
+        subject_teaching: newUser.subjectTeaching,
       })
     })
       .then(r => r.json())
@@ -48,7 +55,9 @@ class NewUser extends Component {
         username: '',
         password: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        gradeTeaching: '',
+        subjectTeaching: ''
       })
   }
 
@@ -67,7 +76,7 @@ class NewUser extends Component {
                 </h2>
                 <div className="field" >
                   <div className="ui left icon input" >
-                    <i className="user icon" ></i>
+                    <i className="user circle icon" ></i>
                     <input
                     type="text"
                     name="username"
@@ -91,7 +100,7 @@ class NewUser extends Component {
                 </div>
                 <div className="field" >
                   <div className="ui left icon input" >
-                    <i className="lock icon" ></i>
+                    <i className="user icon" ></i>
                     <input
                       type="text"
                       name="firstName"
@@ -103,7 +112,7 @@ class NewUser extends Component {
                 </div>
                 <div className="field" >
                   <div className="ui left icon input" >
-                    <i className="lock icon" ></i>
+                    <i className="user icon" ></i>
                     <input
                       type="text"
                       name="lastName"
@@ -112,6 +121,34 @@ class NewUser extends Component {
                       onChange={this.handleChangeUserInput}
                     />
                   </div>
+                </div>
+                <div className="field" >
+                  <select
+                    name="grade"
+                    value={this.state.grade}
+                    onChange={this.handleChange}
+                  >
+                    <option>Grade</option>
+                    {grades.map(grade => {
+                      return (
+                        <option key={grade} value={grade} >{grade}</option>
+                      )})
+                    }
+                  </select>
+                </div>
+                <div className="field" >
+                  <select
+                    name="subject"
+                    value={this.state.subject}
+                    onChange={this.handleChange}
+                  >
+                    <option>Subject</option>
+                    {subjects.map(subject => {
+                      return (
+                        <option key={subject} value={subject} >{subject}</option>
+                      )})
+                    }
+                  </select>
                 </div>
                 <input
                   className="ui fluid large blue submit button"

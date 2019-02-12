@@ -64,17 +64,17 @@ class Nav extends Component {
       return (
         <div>
           <div className="ui large menu">
-            <button className="active item">
+            <button className="active item navbar-font">
               Teachers Help Teachers
             </button>
-            <button className="item" onClick={this.handleHideAllLessons} >
+            <button className="item navbar-font" onClick={this.handleHideAllLessons} >
               Back to My Profile
             </button>
             <div className="right menu">
               <button className="item">
               <SearchBar />
               </button>
-              <button className="item" onClick={this.handleShowAboutPage} >
+              <button className="item navbar-font" onClick={this.handleShowAboutPage} >
                 About
               </button>
               <div className="item">
@@ -88,17 +88,17 @@ class Nav extends Component {
       return (
         <div>
           <div className="ui large menu">
-            <button className="active item">
+            <button className="active item navbar-font">
               Teachers Help Teachers
             </button>
-            <button className="item" onClick={this.handleShowAllLessons} >
+            <button className="item navbar-font" onClick={this.handleShowAllLessons} >
               View All Lessons
             </button>
             <div className="right menu">
-              <button className="item" onClick={this.handleAddLessonFormToggle} >
+              <button className="item navbar-font" onClick={this.handleAddLessonFormToggle} >
                 Add a Lesson
               </button>
-              <button className="item" onClick={this.handleShowAboutPage} >
+              <button className="item navbar-font" onClick={this.handleShowAboutPage} >
                 About
               </button>
               <div className="item">
@@ -112,11 +112,11 @@ class Nav extends Component {
       return (
         <div>
           <div className="ui large menu">
-            <button className="active item">
+            <button className="active item navbar-font">
               Teachers Help Teachers
             </button>
             <div className="right menu">
-              <button className="item" onClick={this.handleShowAboutPage} >
+              <button className="item navbar-font" onClick={this.handleShowAboutPage} >
                 About
               </button>
               <div className="item">
