@@ -21,7 +21,8 @@ class ProfileContainer extends Component {
   componentDidMount() {
     fetch('http://localhost:3000/api/v1/favorite_lessons')
       .then(r => r.json())
-      .then(favoriteLessons => this.props.setFavoriteLessons(favoriteLessons.map(favLesson => favLesson.lesson_id)))
+      .then(favoriteLessons => favoriteLessons.filter(favLesson => favLesson.user_id === this.props.currentUser.id))
+      .then(myFavLessons => this.props.setFavoriteLessons(myFavLessons.map(favLesson => favLesson.lesson_id)))
 
     fetch('http://localhost:3000/api/v1/lessons')
       .then(r => r.json())
