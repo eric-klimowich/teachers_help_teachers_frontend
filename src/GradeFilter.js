@@ -41,10 +41,10 @@ class GradeFilter extends Component {
     return (
       <div className="ui container" >
         <form>
+        <div className="ui grid" >
           {grades.map(grade => {
             return(
-              <label key={grade} >
-                {grade}
+              <div className="ui checkbox two wide column" key={grade} >
                 <input
                   type="checkbox"
                   name={grade}
@@ -53,9 +53,11 @@ class GradeFilter extends Component {
                   onChange={this.handleCheckedGrades}
                 >
                 </input>
-              </label>
+                <label>{grade}</label>
+              </div>
             )
           })}
+        </div>
         </form>
       </div>
     )

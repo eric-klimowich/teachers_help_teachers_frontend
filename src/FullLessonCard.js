@@ -40,18 +40,20 @@ class FullLessonCard extends Component {
     // console.log(this.props.lesson.user.user_id)
     console.log(this.state)
     return(
-      <div className="ui card" key={this.props.lesson.key} >
+      <div className="ui centered card" key={this.props.lesson.key} >
         <div className="content">
-          <div className="header">{this.props.lesson.title}</div>
+          <div className="header marker-font">{this.props.lesson.title}</div>
         </div>
         <div className="content">
-          <h4 className="ui sub header">Activity</h4>
+          <h4 className="ui sub header marker-font">Lesson Description</h4>
           <div className="ui small feed">
             <div className="event">
               <div className="content">
-                <div className="summary">
+                <div className="summary marker-font">
                    {this.props.lesson.description}
-                   <p>Grade: {this.props.lesson.grade.level}, Subject: {this.props.lesson.grade.subject}</p>
+                   <br />
+                   <br />
+                   <p className="marker-font" >Grade: {this.props.lesson.grade.level}, Subject: {this.props.lesson.grade.subject}</p>
                    <a href={`http://localhost:3000/api/v1/lessons/${this.props.lesson.id}`}>{this.props.lesson.file_name}</a>
                 </div>
               </div>
@@ -76,8 +78,8 @@ class FullLessonCard extends Component {
           <CommentsList comments={this.props.lesson.comments} />
           </div>
           <AddCommentForm lessonId={this.props.lesson.id} userId={this.props.currentUser.id} />
-          <Button text="Back to Lessons" action={this.props.resetPickedLesson} />
         </div>
+        <Button text="Back to Lessons" action={this.props.resetPickedLesson} />
       </div>
     )
   }

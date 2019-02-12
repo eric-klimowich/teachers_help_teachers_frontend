@@ -44,10 +44,10 @@ class SubjectFilter extends Component {
     return (
       <div className="ui container" >
         <form>
+        <div className="ui grid" >
           {subjects.map(subject => {
             return(
-              <label key={subject} >
-                {subject}
+              <div className="ui checkbox four wide column" key={subject} >
                 <input
                   type="checkbox"
                   name={subject}
@@ -56,9 +56,11 @@ class SubjectFilter extends Component {
                   onChange={this.handleCheckedSubjects}
                 >
                 </input>
-              </label>
+                <label>{subject}</label>
+              </div>
             )
           })}
+        </div>
         </form>
       </div>
     )
