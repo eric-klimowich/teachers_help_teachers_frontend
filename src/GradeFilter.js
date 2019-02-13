@@ -41,7 +41,6 @@ class GradeFilter extends Component {
     return (
       <div className="ui container" >
         <form>
-        <div className="ui grid" >
           {grades.map(grade => {
             return(
               <div className="ui checkbox two wide column" key={grade} >
@@ -57,7 +56,6 @@ class GradeFilter extends Component {
               </div>
             )
           })}
-        </div>
         </form>
       </div>
     )

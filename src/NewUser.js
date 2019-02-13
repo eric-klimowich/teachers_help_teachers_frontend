@@ -64,98 +64,100 @@ class NewUser extends Component {
   render() {
     // console.log(this.props)
     return (
-      <div className="ui middle aligned center aligned grid" >
-        <div className="column" >
-          <form className="ui large form" onSubmit={(event) => this.handleSubmitNewUser(event, this.state)}>
-            <div className="ui stacked segment" >
-              <h2 className="ui blue image header" >
-                <div className="content" >
-                  Sign up for an account
-                </div>
-              </h2>
-              <div className="field" >
-                <div className="ui left icon input" >
-                  <i className="user circle icon" ></i>
-                  <input
-                  type="text"
-                  name="username"
-                  value={this.state.username}
-                  placeholder="enter username..."
-                  onChange={this.handleChangeUserInput}
-                  />
-                </div>
-              </div>
-              <div className="field" >
-                <div className="ui left icon input" >
-                  <i className="lock icon" ></i>
-                  <input
+      <div className="ui container" >
+        <div className="ui middle aligned center aligned grid" >
+          <div className="column" >
+            <form className="ui large form" onSubmit={(event) => this.handleSubmitNewUser(event, this.state)}>
+              <div className="ui stacked segment" >
+                <h2 className="ui blue image header" >
+                  <div className="content" >
+                    Sign up for an account
+                  </div>
+                </h2>
+                <div className="field" >
+                  <div className="ui left icon input" >
+                    <i className="user circle icon" ></i>
+                    <input
                     type="text"
-                    name="password"
-                    value={this.state.password}
-                    placeholder="enter password..."
+                    name="username"
+                    value={this.state.username}
+                    placeholder="enter username..."
                     onChange={this.handleChangeUserInput}
-                  />
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="field" >
-                <div className="ui left icon input" >
-                  <i className="user icon" ></i>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={this.state.firstName}
-                    placeholder="enter first name..."
-                    onChange={this.handleChangeUserInput}
-                  />
+                <div className="field" >
+                  <div className="ui left icon input" >
+                    <i className="lock icon" ></i>
+                    <input
+                      type="text"
+                      name="password"
+                      value={this.state.password}
+                      placeholder="enter password..."
+                      onChange={this.handleChangeUserInput}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="field" >
-                <div className="ui left icon input" >
-                  <i className="user icon" ></i>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={this.state.lastName}
-                    placeholder="enter last name..."
-                    onChange={this.handleChangeUserInput}
-                  />
+                <div className="field" >
+                  <div className="ui left icon input" >
+                    <i className="user icon" ></i>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={this.state.firstName}
+                      placeholder="enter first name..."
+                      onChange={this.handleChangeUserInput}
+                    />
+                  </div>
                 </div>
+                <div className="field" >
+                  <div className="ui left icon input" >
+                    <i className="user icon" ></i>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={this.state.lastName}
+                      placeholder="enter last name..."
+                      onChange={this.handleChangeUserInput}
+                    />
+                  </div>
+                </div>
+                <div className="field" >
+                  <select
+                    name="grade"
+                    value={this.state.grade}
+                    onChange={this.handleChange}
+                  >
+                    <option>Grade</option>
+                    {grades.map(grade => {
+                      return (
+                        <option key={grade} value={grade} >{grade}</option>
+                      )})
+                    }
+                  </select>
+                </div>
+                <div className="field" >
+                  <select
+                    name="subject"
+                    value={this.state.subject}
+                    onChange={this.handleChange}
+                  >
+                    <option>Subject</option>
+                    {subjects.map(subject => {
+                      return (
+                        <option key={subject} value={subject} >{subject}</option>
+                      )})
+                    }
+                  </select>
+                </div>
+                <input
+                  className="ui fluid large blue submit button"
+                  type="submit"
+                  value="Sign me up"
+                />
               </div>
-              <div className="field" >
-                <select
-                  name="grade"
-                  value={this.state.grade}
-                  onChange={this.handleChange}
-                >
-                  <option>Grade</option>
-                  {grades.map(grade => {
-                    return (
-                      <option key={grade} value={grade} >{grade}</option>
-                    )})
-                  }
-                </select>
-              </div>
-              <div className="field" >
-                <select
-                  name="subject"
-                  value={this.state.subject}
-                  onChange={this.handleChange}
-                >
-                  <option>Subject</option>
-                  {subjects.map(subject => {
-                    return (
-                      <option key={subject} value={subject} >{subject}</option>
-                    )})
-                  }
-                </select>
-              </div>
-              <input
-                className="ui fluid large blue submit button"
-                type="submit"
-                value="Sign me up"
-              />
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     )

@@ -6,6 +6,7 @@ import { addLesson } from './actions'
 import { hideAddLessonForm } from './actions'
 import { addLessonToMyLessons } from './actions'
 import { setPickedLesson } from './actions'
+import { setMyLessonsChoiceToMy } from './actions'
 
 const grades = ["K", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"]
 const subjects = ["ELA", "Math", "Science", "Social Studies", "Art", "Music", "PE"]
@@ -98,6 +99,7 @@ class AddLessonForm extends Component {
           })
         })
       })
+    this.props.setMyLessonsChoiceToMy()
     this.props.hideAddLessonForm()
   }
 
@@ -217,7 +219,8 @@ const mapDispatchToProps = dispatch => {
     addLesson: (lesson) => dispatch(addLesson(lesson)),
     hideAddLessonForm: () => dispatch(hideAddLessonForm()),
     addLessonToMyLessons: (lesson) => dispatch(addLessonToMyLessons(lesson)),
-    setPickedLesson: (lesson) => dispatch(setPickedLesson(lesson))
+    setPickedLesson: (lesson) => dispatch(setPickedLesson(lesson)),
+    setMyLessonsChoiceToMy: () => dispatch(setMyLessonsChoiceToMy())
   }
 }
 

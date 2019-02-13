@@ -4,7 +4,7 @@ const AbridgedLessonCard = props => {
   // console.log(props)
   // console.log(props.comments)
   return (
-    <div className="eight wide column" >
+    <div className="four wide column" >
     <div className="ui card">
       <div className="content">
         <i className="right floated like icon"></i>

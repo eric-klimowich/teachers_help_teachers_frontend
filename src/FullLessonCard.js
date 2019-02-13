@@ -61,7 +61,7 @@ class FullLessonCard extends Component {
           </div>
         </div>
         <div className="extra content">
-          {this.props.currentUser.id === this.props.lesson.user.user_id ? null : this.props.favoriteLessonIds.includes(this.props.lesson.id) ? <button>Already in your favorites</button> : <button className="ui button" onClick={() => this.props.favoriteAction(this.props.lesson)} >{this.props.favoriteButtonText}</button>}
+          {this.props.currentUser.id === this.props.lesson.user.user_id ? null : <button className="ui button" onClick={() => this.props.favoriteAction(this.props.lesson)} >{this.props.favoriteButtonText}</button>}
           {this.props.currentUser.id === this.props.lesson.user.user_id ?
             <span>Times used: {this.state.timesUsed}</span> :
             this.props.usedLessonIds.includes(this.props.lesson.id) ?
@@ -74,9 +74,11 @@ class FullLessonCard extends Component {
               </button>
               <span>Times used: {this.state.timesUsed}</span>
             </div>}
-          <div className="ui container" >
+        </div>
+        <div className="extra content" >
           <CommentsList comments={this.props.lesson.comments} />
-          </div>
+        </div>
+        <div className="extra content" >
           <AddCommentForm lessonId={this.props.lesson.id} userId={this.props.currentUser.id} />
         </div>
         <Button text="Back to Lessons" action={this.props.resetPickedLesson} />
@@ -102,3 +104,5 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FullLessonCard)
+
+// this.props.favoriteLessonIds.includes(this.props.lesson.id) ? <button>Already in your favorites</button> :

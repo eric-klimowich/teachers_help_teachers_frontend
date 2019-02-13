@@ -22,6 +22,7 @@ class LessonsList extends Component {
       )
     } else {
       return (
+        <div className="ui container" >
         <div className="ui grid" >
           {this.props.lessons.map(lesson => {
             return (
@@ -33,6 +34,7 @@ class LessonsList extends Component {
               />
             )
           })}
+        </div>
         </div>
       )
     }

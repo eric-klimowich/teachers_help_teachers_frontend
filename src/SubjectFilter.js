@@ -44,7 +44,6 @@ class SubjectFilter extends Component {
     return (
       <div className="ui container" >
         <form>
-        <div className="ui grid" >
           {subjects.map(subject => {
             return(
               <div className="ui checkbox four wide column" key={subject} >
@@ -60,7 +59,6 @@ class SubjectFilter extends Component {
               </div>
             )
           })}
-        </div>
         </form>
       </div>
     )

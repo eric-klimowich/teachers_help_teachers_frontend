@@ -34,47 +34,49 @@ class ReturningUser extends Component {
 
   render() {
     return (
-      <div className="background-picture" >
-        <div className="ui middle aligned center aligned grid" >
-          <div className="column" >
-            <form className="ui large form" onSubmit={(event) => this.handleSubmitReturningUser(event, this.state)} >
-              <div className="ui stacked segment" >
-                <h2 className="ui blue image header" >
-                  <div className="content" >
-                    Login to your account
+      <div className="ui container" >
+        <div className="background-picture" >
+          <div className="ui middle aligned center aligned grid" >
+            <div className="column" >
+              <form className="ui large form" onSubmit={(event) => this.handleSubmitReturningUser(event, this.state)} >
+                <div className="ui stacked segment" >
+                  <h2 className="ui blue image header" >
+                    <div className="content" >
+                      Login to your account
+                    </div>
+                  </h2>
+                  <div className="field" >
+                    <div className="ui left icon input" >
+                      <i className="user circle icon" ></i>
+                      <input
+                      type="text"
+                      name="username"
+                      value={this.state.username}
+                      placeholder="Username..."
+                      onChange={this.handleChange}
+                      />
+                    </div>
                   </div>
-                </h2>
-                <div className="field" >
-                  <div className="ui left icon input" >
-                    <i className="user circle icon" ></i>
-                    <input
-                    type="text"
-                    name="username"
-                    value={this.state.username}
-                    placeholder="Username..."
-                    onChange={this.handleChange}
-                    />
+                  <div className="field" >
+                    <div className="ui left icon input" >
+                      <i className="lock icon" ></i>
+                      <input
+                      type="password"
+                      name="password"
+                      value={this.state.password}
+                      placeholder="Enter password..."
+                      onChange={this.handleChange}
+                      />
+                    </div>
                   </div>
+                  <input
+                  className="ui fluid large blue submit button"
+                  type="submit"
+                  value="Log me in"
+                  />
                 </div>
-                <div className="field" >
-                  <div className="ui left icon input" >
-                    <i className="lock icon" ></i>
-                    <input
-                    type="password"
-                    name="password"
-                    value={this.state.password}
-                    placeholder="Enter password..."
-                    onChange={this.handleChange}
-                    />
-                  </div>
-                </div>
-                <input
-                className="ui fluid large blue submit button"
-                type="submit"
-                value="Log me in"
-                />
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
