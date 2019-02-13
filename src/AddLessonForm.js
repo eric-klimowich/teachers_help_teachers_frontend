@@ -118,7 +118,8 @@ class AddLessonForm extends Component {
   render() {
     // console.log(this.state)
     return (
-      <div className="background-picture" >
+      <div>
+      <div className="ui container" >
         <div className="ui middle aligned center aligned grid" >
           <div className="column" >
             <form className="ui large form" onSubmit={this.handleSubmit} >
@@ -129,8 +130,8 @@ class AddLessonForm extends Component {
                   </div>
                 </h2>
                 <div className="field" >
-                  <div className="ui left icon input" >
-                    <i className="user icon" ></i>
+                  <div className="ui icon input" >
+                    <i className="book icon" ></i>
                     <input
                       type="text"
                       name="title"
@@ -141,8 +142,8 @@ class AddLessonForm extends Component {
                   </div>
                 </div>
                 <div className="field" >
-                  <div className="ui left icon input" >
-                    <i className="user icon" ></i>
+                  <div className="ui icon input" >
+                    <i className="edit icon" ></i>
                     <textarea
                       name="description"
                       value={this.state.description}
@@ -152,8 +153,8 @@ class AddLessonForm extends Component {
                   </div>
                 </div>
                 <div className="field" >
-                  <div className="ui left icon input" >
-                    <i className="user icon" ></i>
+                  <div className="ui icon input" >
+                    <i className="file alternate icon" ></i>
                     <input
                       type="file"
                       name="file"
@@ -200,7 +201,9 @@ class AddLessonForm extends Component {
             </form>
           </div>
         </div>
-        <Button action={this.props.hideAddLessonForm} text="Back to Profile" />
+      </div>
+      <br />
+      <Button action={this.props.hideAddLessonForm} text="Back to Profile" />
       </div>
     )
   }

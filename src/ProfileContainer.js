@@ -151,11 +151,11 @@ class ProfileContainer extends Component {
   render() {
     // console.log(this.props.lessons)
     // console.log(this.props.myLessons)
-    // console.log(this.props.lessons)
+    console.log(this.props.lessons)
     // console.log(this.props.myLessons)
     // console.log(this.props.favoriteLessons)
     // console.log(this.props.favoriteLessonIds)
-    // console.log(this.props.myFavoriteLessons)
+    console.log(this.props.myFavoriteLessons)
     return (
       this.renderProfilePage()
     )

@@ -19,12 +19,20 @@ body {
   width: 80%;
 }
 
-.ui.middle.aligned.center.aligned.grid {
+/* .ui.middle.aligned.center.aligned.grid {
   height: 50%;
   width: 80%;
+} */
+
+#form-container {
+  display: flex;
+  justify-content: center;
 }
 
 #welcome-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   text-align: center;
   height: 50%;

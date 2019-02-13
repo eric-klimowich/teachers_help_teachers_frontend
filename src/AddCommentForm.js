@@ -46,7 +46,9 @@ class AddCommentForm extends Component {
     // console.log(this.props)
     // console.log(this.state)
     return (
-      <form onSubmit={this.handleCommentSubmit} >
+      <form className="marker-font" onSubmit={this.handleCommentSubmit} >
+        What did you think of this lesson? Leave a comment here:
+        <br />
         <input
           name="commentInput"
           type="text"
@@ -54,12 +56,16 @@ class AddCommentForm extends Component {
           onChange={this.handleCommentInputChange}
         />
         <br />
+        <br />
+        Rate this lesson:
+        <br/>
         <select name="commentRating" onChange={this.handleCommentInputChange}>
           <option>Choose</option>
-          Rating: {ratingOptions.map(rating => <option key={rating} value={rating} >{rating}</option>)}
+          {ratingOptions.map(rating => <option key={rating} value={rating} >{rating}</option>)}
         </select>
         <br />
-        <input type="submit" />
+        <br />
+        <input className="ui blue button" type="submit" />
       </form>
     )
   }

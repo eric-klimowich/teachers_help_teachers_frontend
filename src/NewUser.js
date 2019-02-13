@@ -64,7 +64,7 @@ class NewUser extends Component {
   render() {
     // console.log(this.props)
     return (
-      <div className="ui container" >
+      <div id="form-container" className="ui container" >
         <div className="ui middle aligned center aligned grid" >
           <div className="column" >
             <form className="ui large form" onSubmit={(event) => this.handleSubmitNewUser(event, this.state)}>
