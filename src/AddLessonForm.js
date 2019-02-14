@@ -119,7 +119,7 @@ class AddLessonForm extends Component {
     // console.log(this.state)
     return (
       <div>
-      <div className="ui container" >
+      <div id="form-container" className="ui container" >
         <div className="ui middle aligned center aligned grid" >
           <div className="column" >
             <form className="ui large form" onSubmit={this.handleSubmit} >

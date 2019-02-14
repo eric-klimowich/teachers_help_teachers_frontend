@@ -39,11 +39,12 @@ class GradeFilter extends Component {
   render() {
     // console.log('From local state: ', this.state.gradesChecked)
     return (
-      <div className="ui container" >
+      <div id="fixed-grade" className="chalkboard-writing">
+        <strong>Sort by Grade:</strong>
         <form>
           {grades.map(grade => {
             return(
-              <div className="ui checkbox two wide column" key={grade} >
+              <div key={grade} >
                 <input
                   type="checkbox"
                   name={grade}

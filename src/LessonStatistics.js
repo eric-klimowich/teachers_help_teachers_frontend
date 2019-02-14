@@ -9,7 +9,7 @@ class LessonStatistics extends Component {
   render() {
     // console.log(this.props.myLessonsChoice)
     return (
-      <div>
+      <div className="ui container text-container" >
         <h3 className="chalkboard-writing" >
           Our community has <strong>{this.props.lessons.length} lessons</strong> for you to choose from!
           <br />

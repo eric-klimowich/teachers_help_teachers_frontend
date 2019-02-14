@@ -42,11 +42,12 @@ class SubjectFilter extends Component {
     // console.log('From local state: ', this.state.subjectsChecked)
     // console.log('From global state: ', this.props.filteredStuff)
     return (
-      <div className="ui container" >
+      <div id="fixed-subject" className="chalkboard-writing">
+        <strong>Sort by Subject:</strong>
         <form>
           {subjects.map(subject => {
             return(
-              <div className="ui checkbox four wide column" key={subject} >
+              <div key={subject} >
                 <input
                   type="checkbox"
                   name={subject}

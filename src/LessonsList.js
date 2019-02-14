@@ -22,19 +22,19 @@ class LessonsList extends Component {
       )
     } else {
       return (
-        <div className="ui container" >
-        <div className="ui grid" >
-          {this.props.lessons.map(lesson => {
-            return (
-              <AbridgedLessonCard
-                key={lesson.id}
-                lesson={lesson}
-                comments={lesson.comments ? lesson.comments : []}
-                handlePickedLesson={this.handlePickedLesson}
-              />
-            )
-          })}
-        </div>
+        <div className="ui container behind" >
+          <div className="ui grid behind" >
+            {this.props.lessons.map(lesson => {
+              return (
+                <AbridgedLessonCard
+                  key={lesson.id}
+                  lesson={lesson}
+                  comments={lesson.comments ? lesson.comments : []}
+                  handlePickedLesson={this.handlePickedLesson}
+                />
+              )
+            })}
+          </div>
         </div>
       )
     }

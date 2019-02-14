@@ -34,7 +34,7 @@ class ReturningUser extends Component {
 
   render() {
     return (
-      <div id="form-container" className="ui container" >
+      <div id="form-container" className="ui container form-container" >
         <div className="ui middle aligned center aligned grid" >
           <div className="column" >
             <form className="ui large form" onSubmit={(event) => this.handleSubmitReturningUser(event, this.state)} >

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 const UserProfile = props => {
   if (props.currentUser) {
     return (
-      <div className="ui container" >
+      <div className="ui container text-container" >
         <h1 className="chalkboard-writing" >
           Hello, {props.currentUser.first_name}!
         </h1>

@@ -29,6 +29,37 @@ body {
   justify-content: center;
 }
 
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+.behind {
+  z-index: auto;
+}
+
+#fixed-grade {
+  position: fixed;
+  left: 0;
+}
+
+#fixed-subject {
+  position: fixed;
+  right: 0;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* .checks {
+  border: 1px solid black;
+} */
+
 #welcome-intro {
   display: flex;
   justify-content: center;
