@@ -18,6 +18,8 @@ import { addLessonToMyFavoriteLessons } from './actions'
 import { setFavoriteLessonIds } from './actions'
 import { removeLessonFromMyFavoriteLessons } from './actions'
 import { removeLessonIdFromFavoriteLessonIds } from './actions'
+import { addLessonToFavoriteLessons } from './actions'
+import { addLessonToFavoriteLessonIds } from './actions'
 
 
 class ProfileContainer extends Component {
@@ -63,6 +65,12 @@ class ProfileContainer extends Component {
         user_id: this.props.currentUser.id
       })
     })
+      .then(r => r.json())
+      .then(addedFavLesson => {
+        console.log(addedFavLesson)
+        this.props.addLessonToFavoriteLessons(addedFavLesson)
+        this.props.addLessonToFavoriteLessonIds(addedFavLesson.lesson_id)
+      })
     this.props.addLessonToMyFavoriteLessons(lesson)
     console.log(this.props.myFavoriteLessons)
     this.props.resetPickedLesson()
@@ -151,10 +159,10 @@ class ProfileContainer extends Component {
   render() {
     // console.log(this.props.lessons)
     // console.log(this.props.myLessons)
-    console.log(this.props.lessons)
+    // console.log(this.props.lessons)
     // console.log(this.props.myLessons)
-    // console.log(this.props.favoriteLessons)
-    // console.log(this.props.favoriteLessonIds)
+    console.log(this.props.favoriteLessons)
+    console.log(this.props.favoriteLessonIds)
     console.log(this.props.myFavoriteLessons)
     return (
       this.renderProfilePage()
@@ -188,7 +196,9 @@ const mapDispatchToProps = dispatch => {
     addLessonToMyFavoriteLessons: (lesson) => dispatch(addLessonToMyFavoriteLessons(lesson)),
     setFavoriteLessonIds: (lessonIds) => dispatch(setFavoriteLessonIds(lessonIds)),
     removeLessonFromMyFavoriteLessons: (lesson) => dispatch(removeLessonFromMyFavoriteLessons(lesson)),
-    removeLessonIdFromFavoriteLessonIds: (lesson) => dispatch(removeLessonIdFromFavoriteLessonIds(lesson))
+    removeLessonIdFromFavoriteLessonIds: (lesson) => dispatch(removeLessonIdFromFavoriteLessonIds(lesson)),
+    addLessonToFavoriteLessons: (addedFavLesson) => dispatch(addLessonToFavoriteLessons(addedFavLesson)),
+    addLessonToFavoriteLessonIds: (addedFavLesson) => dispatch(addLessonToFavoriteLessonIds(addedFavLesson))
   }
 }
 

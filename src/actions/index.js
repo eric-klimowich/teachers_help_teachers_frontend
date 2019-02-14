@@ -68,6 +68,19 @@ export const addLessonToMyLessons = newLesson => {
   }
 }
 
+export const addLessonToFavoriteLessons = addedFavLesson => {
+  return {
+    type: 'ADD_LESSON_TO_FAVORITE_LESSONS',
+    payload: addedFavLesson
+  }
+}
+export const addLessonToFavoriteLessonIds = addedFavLesson => {
+  return {
+    type: 'ADD_LESSON_TO_FAVORITE_LESSON_IDS',
+    payload: addedFavLesson
+  }
+}
+
 export const addLessonToMyFavoriteLessons = newLesson => {
   return {
     type: 'ADD_LESSON_TO_MY_FAVORITE_LESSONS',
