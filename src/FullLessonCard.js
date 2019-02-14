@@ -61,18 +61,19 @@ class FullLessonCard extends Component {
           </div>
         </div>
         <div className="extra content">
-          {this.props.currentUser.id === this.props.lesson.user.user_id ? null : <button className="ui button" onClick={() => this.props.favoriteAction(this.props.lesson)} >{this.props.favoriteButtonText}</button>}
+          {this.props.currentUser.id === this.props.lesson.user.user_id ? null : <button className={this.props.buttonColor} onClick={() => this.props.favoriteAction(this.props.lesson)} >{this.props.favoriteButtonText}</button>}<br /><br />
           {this.props.currentUser.id === this.props.lesson.user.user_id ?
-            <span>Times used: {this.state.timesUsed}</span> :
+            <span className="marker-font" >Times used: {this.state.timesUsed}</span> :
             this.props.usedLessonIds.includes(this.props.lesson.id) ?
-            <div>
+            <div className="marker-font">
               You've used this lesson! Awesome!
             </div> :
             <div>
-              <button onClick={this.handleAddUsed}>
-                Used?
+              <button className="ui blue button" onClick={this.handleAddUsed}>
+                Have you used this lesson?
               </button>
-              <span>Times used: {this.state.timesUsed}</span>
+              <br />
+              <p className="marker-font" >Times used: {this.state.timesUsed}</p>
             </div>}
         </div>
         <div className="extra content" >

@@ -42,12 +42,21 @@ body {
 
 #fixed-grade {
   position: fixed;
-  left: 0;
+  left: 1%;
+  font-size: 30px;
 }
 
 #fixed-subject {
   position: fixed;
-  right: 0;
+  top: 38%;
+  left: 1%;
+  font-size: 30px;
+}
+
+img {
+  position: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .text-container {

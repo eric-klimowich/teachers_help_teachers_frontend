@@ -51,7 +51,7 @@ export default function (state = defaultState, action) {
     case 'ADD_LESSON_TO_MY_FAVORITE_LESSONS':
       return {...state, myFavoriteLessons: [...state.myFavoriteLessons, action.payload]}
     case 'REMOVE_LESSON_FROM_MY_FAVORITE_LESSONS':
-    console.log(action.payload)
+    // console.log(action.payload)
       return {...state, myFavoriteLessons: [...state.myFavoriteLessons.filter(lesson => lesson.id !== action.payload.lesson_id)]}
     case 'REMOVE_LESSONID_FROM_FAVORITE_LESSON_IDS':
       return {...state, favoriteLessonIds: [...state.favoriteLessonIds.filter(lessonId => lessonId !== action.payload.lesson_id)]}

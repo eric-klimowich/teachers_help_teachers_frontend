@@ -42,14 +42,14 @@ class Nav extends Component {
     if (this.props.currentUser && this.props.showAllLessons && this.props.pickedLesson) {
       return (
         <div className="ui large menu">
-          <button className="active item">
+          <button className="active item marker-font">
             Teachers Help Teachers
           </button>
-          <button className="item" onClick={this.handleHideAllLessons} >
+          <button className="item marker-font" onClick={this.handleHideAllLessons} >
             Back to My Profile
           </button>
           <div className="right menu">
-            <button className="item" onClick={this.handleShowAboutPage} >
+            <button className="item marker-font" onClick={this.handleShowAboutPage} >
               About
             </button>
             <div className="item">

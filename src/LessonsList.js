@@ -18,6 +18,7 @@ class LessonsList extends Component {
           lesson={this.props.pickedLesson}
           favoriteAction={this.props.favoriteAction}
           favoriteButtonText={this.props.favoriteButtonText}
+          buttonColor={this.props.buttonColor}
         />
       )
     } else {

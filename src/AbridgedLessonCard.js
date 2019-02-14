@@ -7,18 +7,18 @@ const AbridgedLessonCard = props => {
     <div className="four wide column" >
       <div className="ui card">
         <div className="content">
-          <div className="header">{props.lesson.title}</div>
-            <div className="description">
+          <div className="header marker-font">{props.lesson.title}</div>
+            <div className="description marker-font">
               <p>{props.lesson.description}</p>
             </div>
         </div>
         <div className="extra content">
-          <span className="left floated like">
+          <span className="left floated like marker-font">
           <i className="like icon"></i>
             Times Used: {props.lesson.times_used}
           </span>
-          <span className="right floated star">
-          <i className="star icon"></i>
+          <span className="right floated edit marker-font">
+          <i className="edit icon"></i>
             Comments: {props.comments.length}
           </span>
         </div>

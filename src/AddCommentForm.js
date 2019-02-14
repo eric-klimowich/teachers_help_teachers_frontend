@@ -57,7 +57,7 @@ class AddCommentForm extends Component {
         />
         <br />
         <br />
-        Rate this lesson:
+        Rate this lesson: (5 highest, 1 lowest)
         <br/>
         <select name="commentRating" onChange={this.handleCommentInputChange}>
           <option>Choose</option>

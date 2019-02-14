@@ -98,6 +98,7 @@ class ProfileContainer extends Component {
             lessons={this.props.lessons}
             favoriteAction={this.favoriteALesson}
             favoriteButtonText="Add to Favorites"
+            buttonColor="ui green button"
           />
         </div>
       )
@@ -110,6 +111,7 @@ class ProfileContainer extends Component {
             lessons={this.props.lessons}
             favoriteAction={this.favoriteALesson}
             favoriteButtonText="Add to Favorites"
+            buttonColor="ui green button"
           />
         </div>
       )
@@ -127,12 +129,13 @@ class ProfileContainer extends Component {
           <div>
             <Nav />
             <UserProfile />
+            <Button action={this.handleBackFromLessonCard} text="Back to Profile" />
             <LessonsContainer
               lessons={this.props.myFavoriteLessons}
               favoriteAction={this.removeLessonFromFavorites}
               favoriteButtonText="Remove from Favorites"
+              buttonColor="ui red button"
             />
-            <Button action={this.handleBackFromLessonCard} text="Back to Profile" />
           </div>
         )
       } else if (this.props.myLessonsChoice === 'myLessons') {
@@ -140,8 +143,8 @@ class ProfileContainer extends Component {
           <div>
             <Nav />
             <UserProfile />
-            <LessonsContainer lessons={this.props.myLessons} />
             <Button action={this.handleBackFromLessonCard} text="Back to Profile" />
+            <LessonsContainer lessons={this.props.myLessons} />
           </div>
         )
       } else {

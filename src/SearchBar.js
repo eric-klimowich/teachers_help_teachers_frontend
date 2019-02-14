@@ -21,7 +21,7 @@ class SearchBar extends Component {
           onChange={this.handleSearchBarInputChange}
         />
         <i
-          className="inverted circular search link icon">
+          className="search icon">
         </i>
       </div>
     )
