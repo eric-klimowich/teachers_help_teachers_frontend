@@ -11,7 +11,7 @@ Teachers Helping Teachers is a file-share application that allows teachers to up
 Before beginning with the installing of the front end of this application, you should first set up the back end.
 
 
-## Link to Backend Repo
+## Link to Back End Repo
 
 https://github.com/eric-klimowich/teachers_help_teachers_backend
 
