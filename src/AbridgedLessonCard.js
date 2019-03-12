@@ -5,7 +5,7 @@ const AbridgedLessonCard = props => {
   // console.log(props.comments)
   return (
     <div className="four wide column" >
-      <div className="ui card">
+      <div className="ui card abridged">
         <div className="content">
           <div className="header marker-font">{props.lesson.title}</div>
             <div className="description marker-font">

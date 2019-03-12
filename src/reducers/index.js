@@ -15,6 +15,7 @@ const defaultState = {
   currentUser: null,
   loginChoice: '',
   showAddLessonForm: false,
+  showingEditLessonForm: false,
   searchBarInput: '',
   showAllLessons: false,
   showAboutPage: false,
@@ -79,6 +80,8 @@ export default function (state = defaultState, action) {
       return {...state, users: [...state.users, action.payload]}
     case 'SHOW_ADD_LESSON_FORM':
       return {...state, showAddLessonForm: true}
+    case 'SHOW_EDIT_LESSON_FORM':
+      return {...state, showingEditLessonForm: true}
     case 'HIDE_ADD_LESSON_FORM':
       return {...state, showAddLessonForm: false}
     case 'SHOW_ALL_LESSONS_PAGE':

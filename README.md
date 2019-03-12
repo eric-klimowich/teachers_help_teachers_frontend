@@ -1,69 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Teachers Helping Teachers
 
-## Available Scripts
 
-In the project directory, you can run:
+## Project Summary
 
-### `npm start`
+Teachers Helping Teachers is a file-share application that allows teachers to upload or download lesson plans for free. While there are a number of sites and applications that exits with this capability, many are pay-per-lesson or subscription based. As a former teacher, I wanted to create this app to allow the free flow of ideas to assist new and veteran teachers alike, allowing new teachers to learn and veterans to share their wealth of knowledge.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Installing
 
-### `npm test`
+Before beginning with the installing of the front end of this application, you should first set up the back end.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Link to Backend Repo
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+https://github.com/eric-klimowich/teachers_help_teachers_backend
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Once the back end is set up, you can fork and clone the front end.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Be sure the back end is up and running first:
 
-### `npm run eject`
+```
+cd teachers_help_teachers_backend
+rails db:create && rails db:migrate
+rails s
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Once installed, follow the instructions to start up front end:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+cd teachers_help_teachers_frontend
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The back end will be running on http://localhost:3000
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+After
+```
+npm start
+```
+be sure to say "Yes" to starting the front end on a different server:
+http://localhost:3001 or a server of your choosing.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Built With
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [JavaScript]
+* [React]
+* [Redux]
+* [Semantic]
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Link to Video Demo
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# teachers_help_teachers_frontend
+https://youtu.be/UeN8Hmvk0MU

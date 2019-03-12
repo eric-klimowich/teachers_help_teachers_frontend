@@ -59,6 +59,19 @@ img {
   text-align: center;
 }
 
+.title {
+  font-size: 48px;
+}
+
+.intro {
+  font-size: 36px;
+}
+
+.abridged {
+  height: 400px;
+  width: auto;
+}
+
 .text-container {
   display: flex;
   justify-content: center;

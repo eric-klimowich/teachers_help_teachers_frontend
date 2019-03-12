@@ -183,6 +183,12 @@ export const showAddLessonForm = () => {
   }
 }
 
+export const showEditLessonForm = () => {
+  return {
+    type: 'SHOW_EDIT_LESSON_FORM'
+  }
+}
+
 export const hideAddLessonForm = () => {
   return {
     type: 'HIDE_ADD_LESSON_FORM'

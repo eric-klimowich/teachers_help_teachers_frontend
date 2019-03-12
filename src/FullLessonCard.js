@@ -6,6 +6,7 @@ import AddCommentForm from './AddCommentForm'
 import Button from './Button'
 import { resetPickedLesson } from './actions'
 import { addUsedLessonId } from './actions'
+import { showEditLessonForm } from './actions'
 
 class FullLessonCard extends Component {
 
@@ -34,12 +35,16 @@ class FullLessonCard extends Component {
     })
   }
 
+  handleShowEditLessonForm = () => {
+    this.props.showEditLessonForm()
+  }
+
   render() {
     // console.log(this.props.pickedLesson)
     // console.log(this.props.currentUser.id)
     // console.log(this.props.lesson.user.user_id)
     // console.log(this.state)
-    return(
+    return (
       <div className="ui centered card" key={this.props.lesson.key} >
         <div className="content">
           <div className="header marker-font">{this.props.lesson.title}</div>
@@ -93,14 +98,16 @@ const mapStateToProps = state => {
     currentUser: state.currentUser,
     pickedLesson: state.pickedLesson,
     favoriteLessonIds: state.favoriteLessonIds,
-    usedLessonIds: state.usedLessonIds
+    usedLessonIds: state.usedLessonIds,
+    showEditLessonForm: state.showEditLessonForm
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     resetPickedLesson: () => dispatch(resetPickedLesson()),
-    addUsedLessonId: (lessonId) => dispatch(addUsedLessonId(lessonId))
+    addUsedLessonId: (lessonId) => dispatch(addUsedLessonId(lessonId)),
+    showEditLessonForm: () => dispatch(showEditLessonForm())
   }
 }
 
