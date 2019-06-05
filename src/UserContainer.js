@@ -5,7 +5,7 @@ import Nav from './components/Nav'
 import UserProfile from './UserProfile'
 import LessonsContainer from './LessonsContainer'
 import AddLessonForm from './forms/AddLessonForm'
-import FilterContainer from './FilterContainer'
+import FilterContainer from './containers/FilterContainer'
 
 class UserContainer extends Component {
 
