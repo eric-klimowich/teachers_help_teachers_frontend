@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { changeSearchBarInput } from './actions'
+import { changeSearchBarInput } from '../actions'
 
 class SearchBar extends Component {
 

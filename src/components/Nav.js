@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Login from './Login'
-import Logout from './Logout'
+import Login from '../Login'
+import Logout from '../Logout'
 import SearchBar from './SearchBar'
-import { setLoginChoice } from './actions'
-import { showAddLessonForm } from './actions'
-import { showAllLessonsPage } from './actions'
-import { hideAllLessonsPage } from './actions'
-import { showAboutPage } from './actions'
-import { resetPickedLesson } from './actions'
-import { hideAddLessonForm } from './actions'
+import { setLoginChoice } from '../actions'
+import { showAddLessonForm } from '../actions'
+import { showAllLessonsPage } from '../actions'
+import { hideAllLessonsPage } from '../actions'
+import { showAboutPage } from '../actions'
+import { resetPickedLesson } from '../actions'
+import { hideAddLessonForm } from '../actions'
 
 class Nav extends Component {
 

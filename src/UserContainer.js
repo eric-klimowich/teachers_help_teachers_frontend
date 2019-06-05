@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Nav from './Nav'
+import Nav from './components/Nav'
 import UserProfile from './UserProfile'
 import LessonsContainer from './LessonsContainer'
 import AddLessonForm from './AddLessonForm'
