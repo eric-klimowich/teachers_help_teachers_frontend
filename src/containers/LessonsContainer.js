@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import LessonsList from './LessonsList'
+import LessonsList from '../LessonsList'
 
 class LessonsContainer extends Component {
 
