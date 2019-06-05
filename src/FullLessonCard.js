@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import CommentsList from './CommentsList'
 import AddCommentForm from './AddCommentForm'
-import Button from './Button'
+import Button from './components/Button'
 import { resetPickedLesson } from './actions'
 import { addUsedLessonId } from './actions'
 import { showEditLessonForm } from './actions'
@@ -55,11 +55,13 @@ class FullLessonCard extends Component {
             <div className="event">
               <div className="content">
                 <div className="summary marker-font">
-                   {this.props.lesson.description}
-                   <br />
-                   <br />
-                   <p className="marker-font" >Grade: {this.props.lesson.grade.level}, Subject: {this.props.lesson.grade.subject}</p>
-                   <a href={`http://localhost:3000/api/v1/lessons/${this.props.lesson.id}`}>{this.props.lesson.file_name}</a>
+                  {this.props.lesson.description}
+                  <br />
+                  <br />
+                  <p className="marker-font" >Grade: {this.props.lesson.grade.level}, Subject: {this.props.lesson.grade.subject}</p>
+                  <a href={`http://localhost:3000/api/v1/lessons/${this.props.lesson.id}`}>
+                    {this.props.lesson.file_name}
+                  </a>
                 </div>
               </div>
             </div>
