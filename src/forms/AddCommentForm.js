@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { addComment } from './actions'
+import { addComment } from '../actions'
 
 const ratingOptions = [1, 2, 3, 4, 5]
 

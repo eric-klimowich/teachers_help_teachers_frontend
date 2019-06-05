@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Nav from './components/Nav'
 import UserProfile from './UserProfile'
 import LessonsContainer from './LessonsContainer'
-import AddLessonForm from './AddLessonForm'
+import AddLessonForm from './forms/AddLessonForm'
 import FilterContainer from './FilterContainer'
 
 class UserContainer extends Component {

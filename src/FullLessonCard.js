@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import CommentsList from './CommentsList'
-import AddCommentForm from './AddCommentForm'
+import AddCommentForm from './forms/AddCommentForm'
 import Button from './components/Button'
 import { resetPickedLesson } from './actions'
 import { addUsedLessonId } from './actions'
