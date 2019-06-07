@@ -31,6 +31,18 @@ body {
   font-family: chalkduster, fantasy;
 }
 
+.statistics-total__community {
+  color: white;
+  font-size: 2rem;
+  font-family: chalkduster, fantasy;
+}
+
+.statistics-total__user {
+  color: white;
+  font-size: 2rem;
+  font-family: chalkduster, fantasy;
+}
+
 /******************** Revised Styling End ********************/
 
 
