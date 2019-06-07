@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import './App.css'
@@ -32,10 +33,24 @@ class App extends Component {
 
   render() {
     return (
-      this.renderAppOrAbout()
+      <div>
+        <BrowserRouter>
+          <div>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/about" exact component={About} />
+            <Route path="/user" exact component={ProfileContainer} />
+          </div>
+        </BrowserRouter>
+      </div>
     )
   }
 }
+
+  // render() {
+  //   return (
+  //     this.renderAppOrAbout()
+  //   )
+  // }
 
 const mapStateToProps = state => {
   return {
