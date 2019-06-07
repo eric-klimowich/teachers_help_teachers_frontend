@@ -5,6 +5,8 @@ body {
   background-attachment: fixed;
 }
 
+/******************** Revised Styling ********************/
+
 .homepage-introduction__container {
   display: flex;
   justify-content: center;
@@ -28,6 +30,12 @@ body {
   font-family: chalkduster, fantasy;
 }
 
+/******************** Revised Styling End ********************/
+
+
+
+
+/******************** Original Styling Below ********************/
 
 .chalkboard-writing {
   color: white;
