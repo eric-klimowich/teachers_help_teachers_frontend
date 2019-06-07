@@ -11,20 +11,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin: auto;
   text-align: center;
-  margin: 4rem 8rem;
-  /* height: 50%; */
-  /* width: 50%; */
+  margin: 3rem 8rem;
 }
 
 .homepage-introduction__title {
+  margin: 1rem;
   font-size: 4rem;
   color: white;
   font-family: chalkduster, fantasy;
 }
 
 .homepage-introduction__intro {
+  margin: 1rem;
   font-size: 2rem;
   color: white;
   font-family: chalkduster, fantasy;
