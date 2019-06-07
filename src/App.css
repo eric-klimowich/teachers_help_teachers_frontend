@@ -5,10 +5,41 @@ body {
   background-attachment: fixed;
 }
 
+.homepage-introduction__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  margin: 4rem 8rem;
+  /* height: 50%; */
+  /* width: 50%; */
+}
+
+.homepage-introduction__title {
+  font-size: 4rem;
+  color: white;
+  font-family: chalkduster, fantasy;
+}
+
+.homepage-introduction__intro {
+  font-size: 2rem;
+  color: white;
+  font-family: chalkduster, fantasy;
+}
+
+
 .chalkboard-writing {
   color: white;
   font-family: chalkduster, fantasy;
 }
+
+
+
+
+
+
+
 
 .marker-font {
   font-family: "Marker Felt", fantasy;
@@ -59,14 +90,6 @@ img {
   text-align: center;
 }
 
-.title {
-  font-size: 48px;
-}
-
-.intro {
-  font-size: 36px;
-}
-
 .abridged {
   height: 400px;
   width: auto;
@@ -81,13 +104,3 @@ img {
 /* .checks {
   border: 1px solid black;
 } */
-
-#welcome-intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  text-align: center;
-  height: 50%;
-  width: 50%;
-}
