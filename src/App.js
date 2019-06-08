@@ -30,27 +30,32 @@ class App extends Component {
       )
     }
   }
-
   render() {
     return (
-      <div>
-        <BrowserRouter>
-          <div>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/about" exact component={About} />
-            <Route path="/user" exact component={ProfileContainer} />
-          </div>
-        </BrowserRouter>
-      </div>
+      this.renderAppOrAbout()
     )
   }
 }
 
-  // render() {
-  //   return (
-  //     this.renderAppOrAbout()
-  //   )
-  // }
+// render() {
+//   return (
+//     <div>
+//     <BrowserRouter>
+//     <div>
+//     <Route path="/" exact component={HomePage} />
+//     <Route path="/about" exact component={About} />
+//     <Route path="/lessons" exact component={} />
+//     <Route path="/login" exact component={} />
+//     <Route path="/signup" exact component={} />
+//     <Route path="/user" exact component={ProfileContainer} />
+//     <Route path="/user/favorites" exact component={} />
+//     <Route path="/user/mylessons" exact component={} />
+//     <Route path="/user/addlesson" exact component={} />
+//     </div>
+//     </BrowserRouter>
+//     </div>
+//   )
+// }
 
 const mapStateToProps = state => {
   return {
