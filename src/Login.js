@@ -28,9 +28,13 @@ class Login extends Component {
 
   render() {
     // console.log(this.props)
-    return this.renderWelcomeOrLogin()
+    return (
+      <ReturningUser />
+    )
   }
 }
+
+// return this.renderWelcomeOrLogin()
 
 
 const mapStateToProps = state => {

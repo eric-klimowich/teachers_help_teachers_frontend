@@ -4,8 +4,11 @@ import { connect } from 'react-redux'
 
 import './App.css'
 import ProfileContainer from './ProfileContainer'
+import LessonsContainer from './containers/LessonsContainer'
 import HomePage from './HomePage'
 import About from './About'
+import ReturningUser from './ReturningUser'
+import NewUser from './NewUser'
 import { setUsers } from './actions'
 
 
@@ -31,31 +34,35 @@ class App extends Component {
     }
   }
   render() {
-    return (
-      this.renderAppOrAbout()
-    )
-  }
+      return (
+          <div>
+          <BrowserRouter>
+          <div>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/about" exact component={About} />
+          <Route path="/login" exact component={ReturningUser} />
+          <Route path="/signup" exact component={NewUser} />
+          </div>
+          </BrowserRouter>
+          </div>
+        )
+      }
 }
 
+// <Route path="/about" exact component={LessonsContainer} />
+// <Route path="/lessons" exact component={} />
+// <Route path="/lessons/currentlesson" exact component={} />
+// <Route path="/user" exact component={} />
+// <Route path="/user/favorites" exact component={} />
+// <Route path="/user/mylessons" exact component={} />
+// <Route path="/user/addlesson" exact component={} />
+
 // render() {
-//   return (
-//     <div>
-//     <BrowserRouter>
-//     <div>
-//     <Route path="/" exact component={HomePage} />
-//     <Route path="/about" exact component={About} />
-//     <Route path="/lessons" exact component={} />
-//     <Route path="/login" exact component={} />
-//     <Route path="/signup" exact component={} />
-//     <Route path="/user" exact component={ProfileContainer} />
-//     <Route path="/user/favorites" exact component={} />
-//     <Route path="/user/mylessons" exact component={} />
-//     <Route path="/user/addlesson" exact component={} />
-//     </div>
-//     </BrowserRouter>
-//     </div>
-//   )
-// }
+  //   return (
+    //     this.renderAppOrAbout()
+    //   )
+    // }
+
 
 const mapStateToProps = state => {
   return {
