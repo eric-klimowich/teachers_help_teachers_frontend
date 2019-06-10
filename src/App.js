@@ -49,7 +49,6 @@ class App extends Component {
       }
 }
 
-// <Route path="/about" exact component={LessonsContainer} />
 // <Route path="/lessons" exact component={} />
 // <Route path="/lessons/currentlesson" exact component={} />
 // <Route path="/user" exact component={} />
