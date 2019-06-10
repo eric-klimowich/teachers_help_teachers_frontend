@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import Navbar from './components/Navbar'
 import Button from './components/Button'
 import { hideAboutPage } from './actions'
 
@@ -8,6 +9,7 @@ class About extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <div id="welcome-intro" className="about-introduction__container" >
             <p className="about-introduction__p-one" >
               As a new teacher just starting out in the profession, a great deal of my time and effort was spent creating lesson plans. Coming from a background as a not-for-profit program director, a philosophy I had adopted and always put to use was not "reinventing the wheel". I employed this same philosophy when it came to writing my lesson plans, always looking for ideas or techniques that I could adapt to my classrooms and students. However, I found that a lot of the plentiful resourses came at a price, literally.

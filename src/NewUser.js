@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import Navbar from './components/Navbar'
 import { addNewUser } from './actions'
 import { setCurrentUser } from './actions'
 
@@ -64,6 +65,8 @@ class NewUser extends Component {
   render() {
     // console.log(this.props)
     return (
+      <div>
+      <Navbar />
       <div id="form-container" className="ui container" >
         <div className="ui middle aligned center aligned grid" >
           <div className="column" >
@@ -159,6 +162,7 @@ class NewUser extends Component {
             </form>
           </div>
         </div>
+      </div>
       </div>
     )
   }
