@@ -1,11 +1,13 @@
 import React from 'react'
 
-import Nav from './components/Nav'
+import Navbar from './components/Navbar'
+import Welcome from './Welcome'
 
 const HomePage = props => {
   return (
     <div>
-      <Nav />
+      <Navbar />
+      <Welcome />
     </div>
   )
 }
