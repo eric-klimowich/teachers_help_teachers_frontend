@@ -85,6 +85,12 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+.main-header a {
+  text-decoration: none;
+  color: white;
+  padding-bottom: 0.2rem;
+}
 /******************** Revised Styling End ********************/
 
 
