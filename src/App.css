@@ -76,7 +76,7 @@ body {
 .main-header {
   width: 100%;
   position: fixed;
-  background: gray;
+  background: rgb(19, 43, 166);
   padding: 1.2rem 0;
   top: 0;
   left: 0;
@@ -118,14 +118,14 @@ body {
 .main-nav__item--cta a,
 .mobile-nav__item--cta a {
   color: white;
-  background: rgb(95, 179, 148);
+  background: rgb(113, 189, 161);
   padding: 0.5rem 1rem;
   border-radius: .5rem;
 }
 
 .main-nav__item--cta a:hover,
 .mobile-nav__item--cta a:hover {
-  color: rgb(95, 179, 148);
+  color: rgb(113, 189, 161);
   background: white;
   border: none;
 }
