@@ -109,6 +109,21 @@ body {
   margin: 0 1rem;
   font-weight: bold;
 }
+
+.main-nav__item--cta a,
+.mobile-nav__item--cta a {
+  color: white;
+  background: rgb(95, 179, 148);
+  padding: 0.5rem 1rem;
+  border-radius: .5rem;
+}
+
+.main-nav__item--cta a:hover,
+.mobile-nav__item--cta a:hover {
+  color: rgb(95, 179, 148);
+  background: white;
+  border: none;
+}
 /******************** Revised Styling End ********************/
 
 
