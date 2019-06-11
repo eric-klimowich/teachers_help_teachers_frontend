@@ -91,6 +91,12 @@ body {
   color: white;
   padding-bottom: 0.2rem;
 }
+
+.main-header__title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
 /******************** Revised Styling End ********************/
 
 
