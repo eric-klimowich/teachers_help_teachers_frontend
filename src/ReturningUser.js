@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Navbar from './components/Navbar'
 import { setCurrentUser } from './actions'
 
 class ReturningUser extends Component {
@@ -35,8 +34,6 @@ class ReturningUser extends Component {
 
   render() {
     return (
-      <div>
-      <Navbar />
       <div id="form-container" className="ui container form-container" >
         <div className="ui middle aligned center aligned grid" >
           <div className="column" >
@@ -80,7 +77,6 @@ class ReturningUser extends Component {
             </form>
           </div>
         </div>
-      </div>
       </div>
     )
   }

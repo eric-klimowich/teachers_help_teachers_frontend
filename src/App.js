@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import './App.css'
+import Navbar from './components/Navbar'
 import ProfileContainer from './ProfileContainer'
 import LessonsContainer from './containers/LessonsContainer'
 import HomePage from './HomePage'
@@ -34,19 +35,20 @@ class App extends Component {
     }
   }
   render() {
-      return (
-          <div>
+    return (
+        <div>
           <BrowserRouter>
           <div>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/about" exact component={About} />
-          <Route path="/login" exact component={ReturningUser} />
-          <Route path="/signup" exact component={NewUser} />
+            <Navbar />
+            <Route path="/" exact component={HomePage} />
+            <Route path="/about" exact component={About} />
+            <Route path="/login" exact component={ReturningUser} />
+            <Route path="/signup" exact component={NewUser} />
           </div>
           </BrowserRouter>
-          </div>
-        )
-      }
+        </div>
+      )
+    }
 }
 
 // <Route path="/lessons" exact component={} />
