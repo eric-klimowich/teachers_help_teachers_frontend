@@ -25,24 +25,24 @@ import { addLessonToFavoriteLessonIds } from './actions'
 class ProfileContainer extends Component {
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/favorite_lessons')
-      .then(r => r.json())
-      .then(favoriteLessons => {
-        // console.log(favoriteLessons)
-        return favoriteLessons.filter(favLesson => favLesson.user_id === this.props.currentUser.id)
-      })
-      .then(myFavLessons => {
-        // console.log(myFavLessons)
-        this.props.setFavoriteLessons(myFavLessons)
-        this.props.setFavoriteLessonIds(myFavLessons.map(favLesson => favLesson.lesson_id))
-      })
+    // fetch('http://localhost:3000/api/v1/favorite_lessons')
+    //   .then(r => r.json())
+    //   .then(favoriteLessons => {
+    //     // console.log(favoriteLessons)
+    //     return favoriteLessons.filter(favLesson => favLesson.user_id === this.props.currentUser.id)
+    //   })
+    //   .then(myFavLessons => {
+    //     // console.log(myFavLessons)
+    //     this.props.setFavoriteLessons(myFavLessons)
+    //     this.props.setFavoriteLessonIds(myFavLessons.map(favLesson => favLesson.lesson_id))
+    //   })
 
     fetch('http://localhost:3000/api/v1/lessons')
       .then(r => r.json())
       .then(lessons => {
         this.props.setLessons(lessons)
-        this.props.setMyLessons(lessons.filter(lesson => lesson.user.user_id === this.props.currentUser.id))
-        this.props.setMyFavoriteLessons(lessons.filter(lesson => this.props.favoriteLessonIds.includes(lesson.id)))
+        // this.props.setMyLessons(lessons.filter(lesson => lesson.user.user_id === this.props.currentUser.id))
+        // this.props.setMyFavoriteLessons(lessons.filter(lesson => this.props.favoriteLessonIds.includes(lesson.id)))
       })
   }
 
@@ -168,10 +168,11 @@ class ProfileContainer extends Component {
     // console.log(this.props.favoriteLessonIds)
     // console.log(this.props.myFavoriteLessons)
     return (
-      this.renderProfilePage()
+      <LessonsContainer />
     )
   }
 }
+// this.renderProfilePage()
 
 const mapStateToProps = state => {
   return {
