@@ -168,7 +168,10 @@ class ProfileContainer extends Component {
     // console.log(this.props.favoriteLessonIds)
     // console.log(this.props.myFavoriteLessons)
     return (
+      <div>
+      <FilterContainer />
       <LessonsContainer />
+      </div>
     )
   }
 }
