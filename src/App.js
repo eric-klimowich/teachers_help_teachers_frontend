@@ -14,20 +14,6 @@ import NewUser from './NewUser'
 
 class App extends Component {
 
-  // renderAppOrAbout = () => {
-  //   if (this.props.showAboutPage) {
-  //     return (
-  //       <About />
-  //     )
-  //   } else {
-  //     return (
-  //       <div>
-  //         {this.props.currentUser ? <ProfileContainer /> : <HomePage />}
-  //       </div>
-  //     )
-  //   }
-  // }
-
   render() {
     return (
         <div>
@@ -52,12 +38,6 @@ class App extends Component {
 // <Route path="/user/favorites" exact component={} />
 // <Route path="/user/mylessons" exact component={} />
 // <Route path="/user/addlesson" exact component={} />
-
-// render() {
-  //   return (
-    //     this.renderAppOrAbout()
-    //   )
-    // }
 
 
 // const mapStateToProps = state => {
