@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import './App.css'
 import Navbar from './components/Navbar'
 import ProfileContainer from './ProfileContainer'
-// import LessonsContainer from './containers/LessonsContainer'
+import LessonsContainer from './containers/LessonsContainer'
 import HomePage from './HomePage'
 import About from './About'
 import ReturningUser from './ReturningUser'
@@ -44,7 +44,7 @@ class App extends Component {
             <Route path="/about" exact component={About} />
             <Route path="/login" exact component={ReturningUser} />
             <Route path="/signup" exact component={NewUser} />
-            <Route path="/lessons" exact component={ProfileContainer} />
+            <Route path="/lessons" exact component={LessonsContainer} />
           </div>
           </BrowserRouter>
         </div>
