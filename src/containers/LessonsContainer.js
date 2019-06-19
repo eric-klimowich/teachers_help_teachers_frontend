@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
+import SearchBar from '../components/SearchBar'
 import LessonsList from '../LessonsList'
 import { setLessons } from '../actions'
 
@@ -31,7 +32,14 @@ class LessonsContainer extends Component {
 
   render() {
     return (
-      <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ? this.filterLessonsBySubject().filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()) || lesson.description.toLowerCase().includes(this.props.searchBarInput.toLowerCase())) : this.props.lessons.filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()) || lesson.description.toLowerCase().includes(this.props.searchBarInput.toLowerCase()))} favoriteAction={this.props.favoriteAction} favoriteButtonText={this.props.favoriteButtonText} buttonColor={this.props.buttonColor} />
+      <Fragment>
+        <SearchBar />
+        <LessonsList
+          lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterLessonsBySubject().filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()) || lesson.description.toLowerCase().includes(this.props.searchBarInput.toLowerCase())) : this.props.lessons.filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()) || lesson.description.toLowerCase().includes(this.props.searchBarInput.toLowerCase()))}
+          favoriteAction={this.props.favoriteAction}
+          favoriteButtonText={this.props.favoriteButtonText} buttonColor={this.props.buttonColor}
+        />
+      </Fragment>
     )
   }
 }
