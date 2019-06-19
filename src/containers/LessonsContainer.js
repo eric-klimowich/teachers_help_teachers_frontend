@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
+import LessonStatistics from '../components/LessonStatistics'
 import SearchBar from '../components/SearchBar'
 import LessonsList from '../LessonsList'
 import { setLessons } from '../actions'
@@ -33,6 +34,7 @@ class LessonsContainer extends Component {
   render() {
     return (
       <Fragment>
+        <LessonStatistics />
         <SearchBar />
         <LessonsList
           lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ?  this.filterLessonsBySubject().filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()) || lesson.description.toLowerCase().includes(this.props.searchBarInput.toLowerCase())) : this.props.lessons.filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()) || lesson.description.toLowerCase().includes(this.props.searchBarInput.toLowerCase()))}
