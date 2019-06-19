@@ -37,4 +37,4 @@ class App extends Component {
 // <Route path="/user/mylessons" exact component={} />
 // <Route path="/user/addlesson" exact component={} />
 
-export default (App)
+export default App
