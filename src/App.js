@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-// import { connect } from 'react-redux'
 
 import './App.css'
 import Navbar from './components/Navbar'
-// import ProfileContainer from './ProfileContainer'
 import LessonsContainer from './containers/LessonsContainer'
 import HomePage from './HomePage'
 import About from './About'
@@ -38,13 +36,5 @@ class App extends Component {
 // <Route path="/user/favorites" exact component={} />
 // <Route path="/user/mylessons" exact component={} />
 // <Route path="/user/addlesson" exact component={} />
-
-
-// const mapStateToProps = state => {
-//   return {
-//     showAboutPage: state.showAboutPage
-//   }
-// }
-
 
 export default (App)

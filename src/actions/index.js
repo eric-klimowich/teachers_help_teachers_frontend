@@ -200,18 +200,6 @@ export const hideAllLessonsPage = () => {
   }
 }
 
-export const showAboutPage = () => {
-  return {
-    type: 'SHOW_ABOUT_PAGE'
-  }
-}
-
-export const hideAboutPage = () => {
-  return {
-    type: 'HIDE_ABOUT_PAGE'
-  }
-}
-
 export const changeSearchBarInput = (searchBarInput) => {
   return {
     type: 'CHANGE_SEARCH_BAR_INPUT',
