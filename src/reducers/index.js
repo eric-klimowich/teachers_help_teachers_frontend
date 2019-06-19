@@ -1,5 +1,4 @@
 const defaultState = {
-  users: [],
   grades: [],
   gradesToFilter: [],
   subjectsToFilter: [],
@@ -25,8 +24,6 @@ const defaultState = {
 export default function (state = defaultState, action) {
   // debugger
   switch(action.type) {
-    case 'SET_USERS':
-      return {...state, users: action.payload}
     case 'SET_GRADES':
       return {...state, grades: action.payload}
     case 'SET_SUBJECTS':
