@@ -1,39 +1,33 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 import './App.css'
 import Navbar from './components/Navbar'
-import ProfileContainer from './ProfileContainer'
+// import ProfileContainer from './ProfileContainer'
 import LessonsContainer from './containers/LessonsContainer'
 import HomePage from './HomePage'
 import About from './About'
 import ReturningUser from './ReturningUser'
 import NewUser from './NewUser'
-import { setUsers } from './actions'
 
 
 class App extends Component {
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/users')
-      .then(r => r.json())
-      .then(users => this.props.setUsers(users))
-  }
+  // renderAppOrAbout = () => {
+  //   if (this.props.showAboutPage) {
+  //     return (
+  //       <About />
+  //     )
+  //   } else {
+  //     return (
+  //       <div>
+  //         {this.props.currentUser ? <ProfileContainer /> : <HomePage />}
+  //       </div>
+  //     )
+  //   }
+  // }
 
-  renderAppOrAbout = () => {
-    if (this.props.showAboutPage) {
-      return (
-        <About />
-      )
-    } else {
-      return (
-        <div>
-          {this.props.currentUser ? <ProfileContainer /> : <HomePage />}
-        </div>
-      )
-    }
-  }
   render() {
     return (
         <div>
@@ -66,16 +60,11 @@ class App extends Component {
     // }
 
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser,
-    showAboutPage: state.showAboutPage
-  }
-}
-const mapDispatchToProps = dispatch => {
-  return {
-    setUsers: (users) => dispatch(setUsers(users)),
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     showAboutPage: state.showAboutPage
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+export default (App)
