@@ -150,13 +150,6 @@ export const resetPickedLesson = () => {
   }
 }
 
-export const setLoginChoice = loginChoice => {
-  return {
-    type: 'SET_LOGIN_CHOICE',
-    payload: loginChoice
-  }
-}
-
 export const resetLoginChoice = () => {
   return {
     type: 'RESET_LOGIN_CHOICE',

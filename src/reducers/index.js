@@ -12,7 +12,6 @@ const defaultState = {
   comments: [],
   pickedLesson: null,
   currentUser: null,
-  loginChoice: '',
   showAddLessonForm: false,
   showingEditLessonForm: false,
   searchBarInput: '',
