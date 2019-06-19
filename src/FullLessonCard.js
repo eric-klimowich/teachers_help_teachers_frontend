@@ -67,33 +67,35 @@ class FullLessonCard extends Component {
             </div>
           </div>
         </div>
-        <div className="extra content">
-          {this.props.currentUser.id === this.props.lesson.user.user_id ? null : <button className={this.props.buttonColor} onClick={() => this.props.favoriteAction(this.props.lesson)} >{this.props.favoriteButtonText}</button>}<br /><br />
-          {this.props.currentUser.id === this.props.lesson.user.user_id ?
-            <span className="marker-font" >Times used: {this.state.timesUsed}</span> :
-            this.props.usedLessonIds.includes(this.props.lesson.id) ?
-            <div className="marker-font">
-              You've used this lesson! Awesome!
-            </div> :
-            <div>
-              <button className="ui blue button" onClick={this.handleAddUsed}>
-                Have you used this lesson?
-              </button>
-              <br />
-              <p className="marker-font" >Times used: {this.state.timesUsed}</p>
-            </div>}
-        </div>
         <div className="extra content" >
           <CommentsList comments={this.props.lesson.comments} />
-        </div>
-        <div className="extra content" >
-          <AddCommentForm lessonId={this.props.lesson.id} userId={this.props.currentUser.id} />
         </div>
         <Button text="Back to Lessons" action={this.props.resetPickedLesson} />
       </div>
     )
   }
 }
+
+// <div className="extra content">
+//   {this.props.currentUser.id === this.props.lesson.user.user_id ? null : <button className={this.props.buttonColor} onClick={() => this.props.favoriteAction(this.props.lesson)} >{this.props.favoriteButtonText}</button>}<br /><br />
+//   {this.props.currentUser.id === this.props.lesson.user.user_id ?
+//     <span className="marker-font" >Times used: {this.state.timesUsed}</span> :
+//     this.props.usedLessonIds.includes(this.props.lesson.id) ?
+//     <div className="marker-font">
+//       You've used this lesson! Awesome!
+//     </div> :
+//     <div>
+//       <button className="ui blue button" onClick={this.handleAddUsed}>
+//         Have you used this lesson?
+//       </button>
+//       <br />
+//       <p className="marker-font" >Times used: {this.state.timesUsed}</p>
+//     </div>}
+// </div>
+
+// <div className="extra content" >
+//   <AddCommentForm lessonId={this.props.lesson.id} userId={this.props.currentUser.id} />
+// </div>
 
 const mapStateToProps = state => {
   return {
