@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { setCurrentUser } from './actions'
+import { setCurrentUser } from '../actions'
 
 class ReturningUser extends Component {
 

@@ -6,8 +6,8 @@ import Navbar from './components/Navbar'
 import LessonsContainer from './containers/LessonsContainer'
 import HomePage from './HomePage'
 import About from './About'
-import ReturningUser from './ReturningUser'
-import NewUser from './NewUser'
+import ReturningUser from './forms/ReturningUser'
+import NewUser from './forms/NewUser'
 
 
 class App extends Component {
