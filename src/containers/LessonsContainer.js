@@ -30,11 +30,6 @@ class LessonsContainer extends Component {
   }
 
   render() {
-    // console.log(this.props)
-    // console.log(this.props.lessons)
-    // console.log(this.props.comments)
-    // console.log(this.props.searchBarInput)
-    // console.log(this.props.subjectsToFilter)
     return (
       <LessonsList lessons={this.props.gradesToFilter.length > 0 || this.props.subjectsToFilter.length > 0 ? this.filterLessonsBySubject().filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()) || lesson.description.toLowerCase().includes(this.props.searchBarInput.toLowerCase())) : this.props.lessons.filter(lesson => lesson.title.toLowerCase().includes(this.props.searchBarInput.toLowerCase()) || lesson.description.toLowerCase().includes(this.props.searchBarInput.toLowerCase()))} favoriteAction={this.props.favoriteAction} favoriteButtonText={this.props.favoriteButtonText} buttonColor={this.props.buttonColor} />
     )
