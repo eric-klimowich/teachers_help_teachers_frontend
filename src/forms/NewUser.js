@@ -37,19 +37,21 @@ class NewUser extends Component {
         Accept: 'application/json'
       },
       body: JSON.stringify({
-        username: newUser.username,
-        password: newUser.password,
-        first_name: newUser.firstName,
-        last_name: newUser.lastName,
-        grade_teaching: newUser.gradeTeaching,
-        subject_teaching: newUser.subjectTeaching,
+        user: {
+          username: newUser.username,
+          password: newUser.password,
+          first_name: newUser.firstName,
+          last_name: newUser.lastName,
+          grade_teaching: newUser.gradeTeaching,
+          subject_teaching: newUser.subjectTeaching
+        }
       })
     })
       .then(r => r.json())
       .then(addedUser => {
-        // console.log(addedUser)
-        this.props.addNewUser(addedUser)
-        this.props.setCurrentUser(addedUser)
+        console.log(addedUser)
+        // this.props.addNewUser(addedUser)
+        // this.props.setCurrentUser(addedUser)
       })
       this.setState({
         username: '',

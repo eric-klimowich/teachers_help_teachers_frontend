@@ -8,6 +8,7 @@ import HomePage from './HomePage'
 import About from './About'
 import ReturningUser from './forms/ReturningUser'
 import NewUser from './forms/NewUser'
+import AddLessonForm from './forms/AddLessonForm'
 
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
             <Route path="/login" exact component={ReturningUser} />
             <Route path="/signup" exact component={NewUser} />
             <Route path="/lessons" exact component={LessonsContainer} />
+            <Route path="/addlessonform" exact component={AddLessonForm} />
           </div>
           </BrowserRouter>
         </div>
