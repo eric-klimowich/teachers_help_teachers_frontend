@@ -163,33 +163,9 @@ export const addNewUser = newUser => {
   }
 }
 
-export const showAddLessonForm = () => {
-  return {
-    type: 'SHOW_ADD_LESSON_FORM'
-  }
-}
-
 export const showEditLessonForm = () => {
   return {
     type: 'SHOW_EDIT_LESSON_FORM'
-  }
-}
-
-export const hideAddLessonForm = () => {
-  return {
-    type: 'HIDE_ADD_LESSON_FORM'
-  }
-}
-
-export const showAllLessonsPage = () => {
-  return {
-    type: 'SHOW_ALL_LESSONS_PAGE'
-  }
-}
-
-export const hideAllLessonsPage = () => {
-  return {
-    type: 'HIDE_ALL_LESSONS_PAGE'
   }
 }
 

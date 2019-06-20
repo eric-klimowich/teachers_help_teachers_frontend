@@ -12,10 +12,8 @@ const defaultState = {
   comments: [],
   pickedLesson: null,
   currentUser: null,
-  showAddLessonForm: false,
   showingEditLessonForm: false,
   searchBarInput: '',
-  showAllLessons: false,
   myLessonsChoice: ''
 }
 
@@ -73,16 +71,8 @@ export default function (state = defaultState, action) {
       return {...state, loginChoice: ''}
     case 'ADD_NEW_USER':
       return {...state, users: [...state.users, action.payload]}
-    case 'SHOW_ADD_LESSON_FORM':
-      return {...state, showAddLessonForm: true}
     case 'SHOW_EDIT_LESSON_FORM':
       return {...state, showingEditLessonForm: true}
-    case 'HIDE_ADD_LESSON_FORM':
-      return {...state, showAddLessonForm: false}
-    case 'SHOW_ALL_LESSONS_PAGE':
-      return {...state, showAllLessons: true}
-    case 'HIDE_ALL_LESSONS_PAGE':
-      return {...state, showAllLessons: false}
     case 'CHANGE_SEARCH_BAR_INPUT':
       return {...state, searchBarInput: action.payload}
     case 'LOGOUT_USER':
