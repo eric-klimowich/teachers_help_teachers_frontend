@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { addLesson } from '../actions'
@@ -114,95 +115,103 @@ class AddLessonForm extends Component {
     }, () => this.convertToBase64())
   }
 
-  render() {
-    // console.log(this.state)
-    return (
-      <div>
-      <div id="form-container" className="ui container" >
-        <div className="ui middle aligned center aligned grid" >
-          <div className="column" >
-            <form className="ui large form" onSubmit={this.handleSubmit} >
-              <div className="ui stacked segment" >
-                <h2 className="ui blue image header" >
-                  <div className="content" >
-                    Add a new lesson to the community
+  renderFormOrPickedLesson = () => {
+    if (!this.props.pickedLesson) {
+      return (
+        <div id="form-container" className="ui container" >
+          <div className="ui middle aligned center aligned grid" >
+            <div className="column" >
+              <form className="ui large form" onSubmit={this.handleSubmit} >
+                <div className="ui stacked segment" >
+                  <h2 className="ui blue image header" >
+                    <div className="content" >
+                      Add a new lesson to the community
+                    </div>
+                  </h2>
+                  <div className="field" >
+                    <div className="ui icon input" >
+                      <i className="book icon" ></i>
+                      <input
+                        type="text"
+                        name="title"
+                        value={this.state.title}
+                        placeholder="lesson title...."
+                        onChange={this.handleChange}
+                      />
+                    </div>
                   </div>
-                </h2>
-                <div className="field" >
-                  <div className="ui icon input" >
-                    <i className="book icon" ></i>
-                    <input
-                      type="text"
-                      name="title"
-                      value={this.state.title}
-                      placeholder="lesson title...."
+                  <div className="field" >
+                    <div className="ui icon input" >
+                      <i className="edit icon" ></i>
+                      <textarea
+                        name="description"
+                        value={this.state.description}
+                        placeholder="lesson description...."
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="field" >
+                    <div className="ui icon input" >
+                      <i className="file alternate icon" ></i>
+                      <input
+                        type="file"
+                        name="file"
+                        // value={this.state.file}
+                        placeholder="lesson file...."
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="field" >
+                    <select
+                      name="grade"
+                      value={this.state.grade}
                       onChange={this.handleChange}
-                    />
+                    >
+                      <option>Grade</option>
+                      {grades.map(grade => {
+                        return (
+                          <option key={grade} value={grade} >{grade}</option>
+                        )})
+                      }
+                    </select>
                   </div>
-                </div>
-                <div className="field" >
-                  <div className="ui icon input" >
-                    <i className="edit icon" ></i>
-                    <textarea
-                      name="description"
-                      value={this.state.description}
-                      placeholder="lesson description...."
+                  <div className="field" >
+                    <select
+                      name="subject"
+                      value={this.state.subject}
                       onChange={this.handleChange}
-                    />
+                    >
+                      <option>Subject</option>
+                      {subjects.map(subject => {
+                        return (
+                          <option key={subject} value={subject} >{subject}</option>
+                        )})
+                      }
+                    </select>
                   </div>
+                  <input
+                  className="ui fluid large blue submit button"
+                  type="submit"
+                  value="Submit Lesson"
+                  />
                 </div>
-                <div className="field" >
-                  <div className="ui icon input" >
-                    <i className="file alternate icon" ></i>
-                    <input
-                      type="file"
-                      name="file"
-                      // value={this.state.file}
-                      placeholder="lesson file...."
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="field" >
-                  <select
-                    name="grade"
-                    value={this.state.grade}
-                    onChange={this.handleChange}
-                  >
-                    <option>Grade</option>
-                    {grades.map(grade => {
-                      return (
-                        <option key={grade} value={grade} >{grade}</option>
-                      )})
-                    }
-                  </select>
-                </div>
-                <div className="field" >
-                  <select
-                    name="subject"
-                    value={this.state.subject}
-                    onChange={this.handleChange}
-                  >
-                    <option>Subject</option>
-                    {subjects.map(subject => {
-                      return (
-                        <option key={subject} value={subject} >{subject}</option>
-                      )})
-                    }
-                  </select>
-                </div>
-                <input
-                className="ui fluid large blue submit button"
-                type="submit"
-                value="Submit Lesson"
-                />
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-      <br />
-      </div>
+      )
+    } else {
+      return <Redirect to="/lessons" />
+    }
+  }
+
+  render() {
+    // console.log(this.state)
+    // console.log(this.props)
+    return (
+      this.renderFormOrPickedLesson()
     )
   }
 }
@@ -210,7 +219,8 @@ class AddLessonForm extends Component {
 const mapStateToProps = state => {
   return {
     grades: state.grades,
-    subjects: state.subjects
+    subjects: state.subjects,
+    pickedLesson: state.pickedLesson
   }
 }
 
