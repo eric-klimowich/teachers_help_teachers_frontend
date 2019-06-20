@@ -56,7 +56,7 @@ class AddLessonForm extends Component {
       },
       body: JSON.stringify({
         grade: this.state.grade,
-        user_id: this.props.currentUser.id
+        user_id: 1
       })
     })
       .then(r => r.json())
@@ -211,7 +211,6 @@ class AddLessonForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser,
     grades: state.grades,
     subjects: state.subjects
   }
