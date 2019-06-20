@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Button from '../components/Button'
 import { addLesson } from '../actions'
 import { hideAddLessonForm } from '../actions'
 import { addLessonToMyLessons } from '../actions'
@@ -203,7 +202,6 @@ class AddLessonForm extends Component {
         </div>
       </div>
       <br />
-      <Button action={this.props.hideAddLessonForm} text="Back to Profile" />
       </div>
     )
   }
